@@ -5,23 +5,26 @@ type Event = MouseEvent | TouchEvent;
 const useOnClickOutside = <T extends HTMLElement = HTMLElement>(
   ref: RefObject<T>,
   handler: (event: Event) => void,
+  exceptionRef?: RefObject<T>
 ) => {
   useEffect(() => {
-    const listner = (event: Event) => {
+    const listener = (event: Event) => {
       const el = ref?.current;
-      if (!el || el.contains((event.target as Node) || null)) {
+      const exceptionEl = exceptionRef?.current;
+      if (!el || el.contains(event.target as Node) || (exceptionEl && exceptionEl.contains(event.target as Node))) {
         return;
       }
       handler(event);
     };
-    document.addEventListener("mousedown", listner);
-    document.addEventListener("touchend", listner);
+
+    document.addEventListener("mousedown", listener);
+    document.addEventListener("touchend", listener);
 
     return () => {
-      document.removeEventListener("mousedown", listner);
-      document.removeEventListener("touchend", listner);
+      document.removeEventListener("mousedown", listener);
+      document.removeEventListener("touchend", listener);
     };
-  }, [ref, handler]);
+  }, [ref, handler, exceptionRef]);
 };
 
 export { useOnClickOutside };

@@ -16,6 +16,7 @@ const Service = () => {
       <SectionSlide href="/services"
       section="services"
       sectionTitle="My photography services"
+      slidesPerView={1}
       slides={serviceArr} />
     </div>
   );

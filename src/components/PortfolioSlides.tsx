@@ -3,24 +3,19 @@
 import {Swiper, SwiperSlide} from "swiper/react"
 import type SwiperType from "swiper"
 import 'swiper/css';
-import { ReactNode, useEffect, useState } from "react";
+import { useEffect, useState } from "react";
 import Heading from "./ui/Heading";
-import { Button } from "./ui/button";
-import { ArrowRight, ArrowUpRightIcon } from "lucide-react";
-import Paragraph from "./ui/Paragraph";
-import Image from "next/image";
-import TitledLink from "./TitledLink";
 import LeftRightButton from "./ui/LeftRightButton";
-import Link from "next/link";
+import { Work } from "@prisma/client";
+import { WorkCard } from "./PortfolioTab";
 
-interface ServiceSliderProps {
-    slides: ReactNode[] | (() => ReactNode)[];
-    section: string
-    sectionTitle: string
-    href: string
-    slidesPerView: number
+interface PortfolioSlidesProps {
+    slides: Work[]
+    title: String
 }
-const SectionSlide = ({slides,href,section,sectionTitle, slidesPerView}: ServiceSliderProps) => {
+
+const PortfolioSlides = ({slides,title}: PortfolioSlidesProps) => {
+    console.log(slides)
     const [swiper, setSwiper] = useState<null | SwiperType>(null)
     const [activeIndex, setActiveIndex] = useState(0)
     const [slideConfig, setSlideConfig] = useState({
@@ -40,9 +35,8 @@ const SectionSlide = ({slides,href,section,sectionTitle, slidesPerView}: Service
     return <div>
     <div className="flex flex-col md:flex-row md:items-center md:justify-between  py-8  items-start border-b-2 border-color">
       <div>
-        <Paragraph variants="topic">{section}</Paragraph>
         <Heading size="sm" className="mb-4">
-          {sectionTitle}
+          {title}
         </Heading>
       </div>
       <div className="md:flex items-center justify- gap-4">
@@ -58,15 +52,6 @@ const SectionSlide = ({slides,href,section,sectionTitle, slidesPerView}: Service
             slideConfig={slideConfig}
              />
           </div>
-        
-          <Button variant="outlineTitle" size="lg">
-            <Link
-              href={href}
-              className="flex items-center justify-between capitalize "
-            >
-              View all {section} &rarr;
-            </Link>
-          </Button>
       </div>
     </div>
     <Swiper
@@ -78,18 +63,18 @@ const SectionSlide = ({slides,href,section,sectionTitle, slidesPerView}: Service
         slidesPerView: 1
       },
       768: {
-        slidesPerView: slidesPerView < 2 ? 1 : slidesPerView - 1
+        slidesPerView: 2
       },
       1024: {
-        slidesPerView: slidesPerView
+        slidesPerView: 3
       }
     }}
     className="h-full w-full"
     >
-       {slides.map((slide, index) => {
+       {slides?.map((slide, index) => {
         return <SwiperSlide key={index}
         className="my-10">
-            {slide}
+            <WorkCard {...slide} />
         </SwiperSlide>
        })}
     </Swiper>
@@ -108,4 +93,4 @@ const SectionSlide = ({slides,href,section,sectionTitle, slidesPerView}: Service
     </div>
 }
 
-export default SectionSlide
+export default PortfolioSlides

@@ -2,14 +2,14 @@ import ArrowLink from "./ui/ArrowLink";
 import Heading from "./ui/Heading";
 import Paragraph from "./ui/Paragraph";
 
-const PricesBox = ({ options }: Options[] | any) => {
+const PricesBox = ({ options }: any) => {
   if (!options || !Array.isArray(options)) {
     return null; // or handle it in another way, like displaying a message
   }
 
   return (
     <div>
-      {options.map((option: Options, index: number) => {
+      {options.map((option, index: number) => {
         return (
           <div
             key={index}
@@ -31,7 +31,7 @@ const PricesBox = ({ options }: Options[] | any) => {
               </div>
             </div>
             <div className="flex flex-col gap-1  w-full md:w-3/5">
-              {option.descList.map((desc, index) => {
+              {option.descList.map((desc:any, index: number) => {
                 return (
                   <div
                     key={index}

@@ -1,6 +1,6 @@
 import { AccordionContent } from "@radix-ui/react-accordion";
 import TitledLink from "./TitledLink";
-import { Accordion, AccordionItem, AccordionTrigger } from "./ui/accordion";
+import { Accordion, AccordionItem, AccordionTrigger } from "./ui/Accordion";
 import {faqs} from "@/app/lib/faq";
 
 const FAQ = () => {

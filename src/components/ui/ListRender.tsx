@@ -20,7 +20,7 @@ const ListRender = () => {
               return (
                 <li
                   key={index}
-                  className="border-b py-0.5 border-accent text-secondary dark:text-stone-300 hover:text-stone-300 hover:dark:text-white"
+                  className="border-b py-0.5 border-accent text-primary dark:text-stone-300 hover:text-stone-300 hover:dark:text-white"
                 >
                   <Link href={link}>{link}</Link>
                 </li>

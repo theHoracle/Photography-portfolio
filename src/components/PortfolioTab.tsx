@@ -2,8 +2,8 @@
 import Image from "next/image";
 import SectionSlide from "./SectionSlide";
 import { ReactNode, useEffect, useState } from "react";
-import { Works } from "@prisma/client";
 import Link from "next/link";
+import { Work } from "@prisma/client";
 
 export const getWorks = async () => {
   const res = await fetch(
@@ -18,7 +18,7 @@ const PortfolioTab = () => {
   useEffect(() => {
     const getPortfolio = async () => {
       const data = await getWorks()
-      const portfolio: Works[] | undefined = data.works
+      const portfolio: Work[] | undefined = data.works
 
       const slidesArray = portfolio?.map((work) => (
         <WorkCard 
@@ -38,7 +38,7 @@ const PortfolioTab = () => {
       href="/portfolio"
       section="portfolio"
       sectionTitle="Explore my photography work"
-      slides={slides}
+      slides={[...slides, ...slides, ...slides]}
       slidesPerView={3} />
       
     </div>
@@ -48,9 +48,9 @@ const PortfolioTab = () => {
 export default PortfolioTab;
 
 
-const WorkCard = ({thumbnail, title, createdAt, slug}: Works) => {
-  return <div className="max-w-[500px] flex flex-col w-full md:w-[32%]  ">
-    <div className="relative overflow-hidden rounded-xl min-h-[594px]">
+export const WorkCard = ({thumbnail, title, createdAt, slug}: Work) => {
+  return <div className="max-w-[500px] mx-auto md:mx-0 flex flex-col gap-2 w-full">
+    <div className="relative overflow-hidden rounded-xl aspect-square">
       <Image
       src={thumbnail}
       fill
@@ -58,13 +58,13 @@ const WorkCard = ({thumbnail, title, createdAt, slug}: Works) => {
       className="object-cover object-center size-full"
        />
     </div>
-    <div className="flex items-start justify-between gap-2 text-sm w-full">
+    <div className="flex items-center justify-between gap-2 text-xs lg:text-sm w-full">
       <div className="flex-1">
-        <h5 className="truncate">{title}</h5>
-        <p className="text-xs">{createdAt.toString()}</p>
+        <h5 className="truncate capitalize">{title}</h5>
+        <p className="text-[10px] lg:text-xs">{createdAt.toString()}</p>
       </div>
-      <div className="flex-1 uppercase border-b-2 border-accent hover:border-background">
-        <Link href={`/works/${slug}`} className="flex gap-2">
+      <div className="flex justify-end uppercase">
+        <Link href={`/works/${slug}`}  className="flex max-w-fit gap-1 items-end text-xs justify-end border-b-2 border-accent hover:border-background" >
         View Project &#x2197;
         </Link>
       </div>

@@ -4,7 +4,7 @@ import { NextResponse } from "next/server";
 // get all prev works
 export const GET = async () => {
     try {
-        const works = await prisma.works.findMany();
+        const works = await prisma.work.findMany();
         console.log("Works: ", works)
         return NextResponse.json({works}, {status: 200})
     } catch (error) {

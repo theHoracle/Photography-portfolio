@@ -26,11 +26,12 @@ const MobileNavbar = () => {
   }, []);
 
   const mobileNavRef = useRef<HTMLDivElement | null>(null);
-  useOnClickOutside(mobileNavRef, () => setIsMenuOpen(false));
+  const themeToggleRef = useRef<HTMLDivElement | null>(null);
+  useOnClickOutside(mobileNavRef, () => setIsMenuOpen(false), themeToggleRef);
 
   return (
     <div className="relative bg-blend-difference">
-      <div className="w-full h-20 border-b-2 border-border-primary px-6">
+      <div className="w-full h-20 border-b-2 border-border-primary px-2.5">
         <div className="h-full -mt-[3px] border-x-2 border-border-primary flex justify-between items-end">
           <div className="p-6">
             <Link href="/">Not Our Logo</Link>
@@ -67,8 +68,8 @@ const MobileNavbar = () => {
                 </Link>
               ))}
             </nav>
-            <div className="justify-end flex ">
-              <ThemeToggle />
+            <div ref={themeToggleRef} className="justify-end flex ">
+              <ThemeToggle  />
             </div>
           </div>
         </div>
