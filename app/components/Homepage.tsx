@@ -1,5 +1,7 @@
 import AboutCard from "./AboutCard";
 import HomeGallery from "./HomeGallery";
+import Portfolio from "./Portfolio";
+import Services from "./Services";
 import Button from "./ui/Button";
 import { ArrowUpRightIcon } from "lucide-react";
 
@@ -25,6 +27,8 @@ const Homepage = () => {
       </div>
       <HomeGallery />
       <AboutCard />
+      <Services />
+      <Portfolio />
     </>
   );
 };
