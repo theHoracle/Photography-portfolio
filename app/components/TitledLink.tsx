@@ -6,20 +6,27 @@ import { ArrowRight } from "lucide-react";
 type Props = {
   title: string;
   desc: string;
-  toGO: string;
+  toGO?: string;
+  buttonText?: string;
 };
 
 const TitledLink = (props: Props) => {
-  const { title, desc, toGO } = props;
+  const { title, desc, toGO, buttonText } = props;
   return (
-    <div className="flex flex-col py-8 mx-6 items-start border-b border-color">
+    <div className="flex flex-col py-8  items-start border-b-2 border-color">
       <Paragraph variants="topic">{desc}</Paragraph>
       <h2 className="uppercase text-3xl mb-4">{title}</h2>
-      <Button variant="outline" size="lg">
-        <Link href={toGO} className="flex items-center justify-between">
-          Know more <ArrowRight className="h-4 w-5" />
-        </Link>
-      </Button>
+      {toGO ? (
+        <Button variant="outline" size="lg">
+          <Link
+            href={toGO}
+            className="flex items-center justify-between capitalize"
+          >
+            {!!!buttonText ? "Know more" : buttonText}{" "}
+            <ArrowRight width={25} height={20} />
+          </Link>
+        </Button>
+      ) : null}
     </div>
   );
 };

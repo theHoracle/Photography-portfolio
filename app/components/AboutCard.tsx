@@ -3,6 +3,7 @@ import TitledLink from "./TitledLink";
 import Paragraph from "./ui/Paragraph";
 import { SocialIcon } from "react-social-icons";
 import Button from "./ui/Button";
+import SocialIcons from "./ui/SocialIcons";
 const AboutCard = () => {
   return (
     <div>
@@ -17,7 +18,7 @@ const AboutCard = () => {
         />
       </div>
 
-      <div className="m-6 all-border border-color p-8 rounded-2xl">
+      <div className="my-6 all-border border-color p-8 rounded-2xl">
         <div className=" mb-8">
           <h4>Introduction</h4>
           <Paragraph className="text-justify">
@@ -40,20 +41,8 @@ const AboutCard = () => {
             <Paragraph>+234 990 3109 821</Paragraph>
           </div>
         </div>
-        <div className="all-border border-color flex mb-8 items-center justify-between rounded-full p-2 w-3/5 max-w-52">
-          <div className="border-2 border-color bg-gray-900 hover:bg-slate-900 rounded-full">
-            <SocialIcon
-              className="text-sm"
-              bgColor="transparent"
-              url="www.facebook.com"
-            />
-          </div>
-          <div className="border-2 border-color bg-gray-900 hover:bg-slate-900 rounded-full">
-            <SocialIcon bgColor="transparent" url="www.x.com" />
-          </div>
-          <div className="border-2 border-color bg-gray-900 hover:bg-slate-900 rounded-full">
-            <SocialIcon bgColor="transparent" url="www.instagram.com" />
-          </div>
+        <div className="mb-8">
+          <SocialIcons />
         </div>
         <div className="flex flex-col items-center justify-between gap-4">
           <Button variant="outline" size="lg" className="w-full text-lg">

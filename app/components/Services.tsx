@@ -14,7 +14,7 @@ const Service = () => {
         desc="services"
         toGO="/services"
       />
-      <div className="mx-6">
+      <div className="">
         <div className="my-8">
           <Image
             className="rounded-2xl"

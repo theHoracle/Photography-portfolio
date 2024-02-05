@@ -1,7 +1,9 @@
 import AboutCard from "./AboutCard";
+import FAQ from "./FAQ";
 import HomeGallery from "./HomeGallery";
 import Portfolio from "./Portfolio";
 import Services from "./Services";
+import Testimonials from "./Testimonials";
 import Button from "./ui/Button";
 import { ArrowUpRightIcon } from "lucide-react";
 
@@ -25,10 +27,14 @@ const Homepage = () => {
           </h2>
         </div>
       </div>
-      <HomeGallery />
-      <AboutCard />
-      <Services />
-      <Portfolio />
+      <div className="mx-6">
+        <HomeGallery />
+        <AboutCard />
+        <Services />
+        <Portfolio />
+        <FAQ />
+        <Testimonials />
+      </div>
     </>
   );
 };
