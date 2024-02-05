@@ -1,5 +1,6 @@
 import AboutCard from "./AboutCard";
 import FAQ from "./FAQ";
+import Footer from "./Footer";
 import HomeGallery from "./HomeGallery";
 import Portfolio from "./Portfolio";
 import Services from "./Services";
@@ -27,14 +28,15 @@ const Homepage = () => {
           </h2>
         </div>
       </div>
-      <div className="mx-6">
+      <main className="mx-6">
         <HomeGallery />
         <AboutCard />
         <Services />
         <Portfolio />
         <FAQ />
         <Testimonials />
-      </div>
+      </main>
+      <Footer />
     </>
   );
 };
