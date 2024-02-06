@@ -18,7 +18,7 @@
 
 body {
   color: rgb(var(--foreground-rgb));
-  background-color: rgb(0, 0, 0);
+  background-color: #0e0e0e;
   font-family: "raleway";
 }
 

@@ -18,7 +18,7 @@ const AboutCard = () => {
         />
       </div>
 
-      <div className="my-6 all-border border-color p-8 rounded-2xl">
+      <div className="my-6 all-border border-border-primary p-8 rounded-2xl">
         <div className=" mb-8">
           <h4>Introduction</h4>
           <Paragraph className="text-justify">

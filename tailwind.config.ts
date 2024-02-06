@@ -15,7 +15,9 @@ const config: Config = {
       },
     },
     colors: {
-      "border-color": "rgb(28, 28, 33)",
+      "background-color": "#0e0e0e",
+      "border-primary": "rgb(28, 28, 33)",
+      "border-secondary": "rgb(47, 47, 55)",
     },
   },
   plugins: [],

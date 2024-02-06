@@ -3,20 +3,22 @@ import Paragraph from "./Paragraph";
 import SocialIcons from "./SocialIcons";
 
 const ReviewCard = () => {
-  const starAmout = [0, 1, 2, 3, 4];
+  const starAmount = [0, 1, 2, 3, 4];
   return (
-    <div className="border-2 border-color rounded-2xl p-6 my-10">
+    <div className="border-2 border-border-primary  rounded-2xl px-4 py-6 my-10 overflow-hidden relative">
+      <div className="w-full h-full rounded-2xl rotate-[35deg] translate-x-48 -translate-y-1/3 bg-border-primary/45 absolute -z-20"></div>
+      <div className="w-full h-full rounded-2xl rotate-[35deg] -translate-x-48 translate-y-1/3 bg-border-primary/45 absolute -z-20"></div>
       <div className="flex items-center justify-between">
         <div className="flex-grow-[2]">
           <h4 className="text-xl">John Doe</h4>
           <Paragraph className="text-slate-600">Nigeria, Lagos</Paragraph>
         </div>
-        <SocialIcons />
+        <SocialIcons small />
       </div>
       <div>
         <div className="flex items-center justify-start gap-1 py-5">
-          {starAmout.map((star, Key) => {
-            return <Star color="gold" />;
+          {starAmount.map((star, index) => {
+            return <Star color="gold" key={index} />;
           })}
         </div>
         <Paragraph className="text-xl">
