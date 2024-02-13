@@ -3,7 +3,7 @@ import Button from "./Button";
 
 const Hero = () => {
   return (
-    <div className="py-10 px-6 w-full">
+    <div className="py-10  w-full">
       <div>
         <p className="uppercase">Stunning Photography By</p>
         <h1 className="text-6xl">theLatunji</h1>
@@ -11,7 +11,7 @@ const Hero = () => {
       <div className="pt-8">
         <h2 className="text-3xl uppercase">
           <div className="flex justify-start items-center gap-2">
-            Let's
+            Let&apos;s
             <Button variant="super" size="xl">
               <ArrowUpRightIcon />
             </Button>

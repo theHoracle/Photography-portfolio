@@ -3,7 +3,7 @@ import Footer from "../components/Footer";
 import Navbar from "../components/Navbar";
 import Testimonials from "../components/Testimonials";
 
-export default function Home() {
+export default function About() {
   return (
     <main className="flex flex-col ">
       <Navbar />

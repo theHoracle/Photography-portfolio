@@ -16,7 +16,10 @@ const ListRender = () => {
             <h5 className="text-border-secondary  font-semibold">{links[0]}</h5>
             {links[1].map((link, index) => {
               return (
-                <li className="border-b-2 py-0.5 border-border-primary text-white/75">
+                <li
+                  key={index}
+                  className="border-b-2 py-0.5 border-border-primary text-white/75"
+                >
                   {link}
                 </li>
               );
