@@ -1,12 +1,14 @@
 import { ArrowUpRightIcon } from "lucide-react";
 import Button from "./Button";
+import Heading from "./Heading";
+import Paragraph from "./Paragraph";
 
 const Hero = () => {
   return (
     <div className="py-10  w-full">
       <div>
-        <p className="uppercase">Stunning Photography By</p>
-        <h1 className="text-6xl">theLatunji</h1>
+        <Paragraph className="uppercase">Stunning Photography By</Paragraph>
+        <Heading className="text-5xl capitalize">theLatunji</Heading>
       </div>
       <div className="pt-8">
         <h2 className="text-3xl uppercase">

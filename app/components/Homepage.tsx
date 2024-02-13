@@ -4,17 +4,17 @@ import Footer from "./Footer";
 import HomeGallery from "./HomeGallery";
 import Services from "./Services";
 import Testimonials from "./Testimonials";
-import Button from "./ui/Button";
-import { ArrowUpRightIcon } from "lucide-react";
 import Hero from "./ui/Hero";
 import PortfolioTab from "./PortfolioTab";
 import TitledLink from "./TitledLink";
+import Ticker from "./Ticker";
 
 const Homepage = () => {
   return (
     <>
       <Hero />
       <main className="">
+        <Ticker />
         <HomeGallery />
         <AboutCard />
         <Services />

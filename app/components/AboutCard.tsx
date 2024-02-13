@@ -46,7 +46,7 @@ const AboutCard = () => {
         </div>
         <div className="flex flex-col items-center justify-between gap-4">
           <Button variant="outline" size="lg" className="w-full text-lg">
-            Let's Work
+            Let&apos;s Work
           </Button>
           <Button variant="outline" size="lg" className="w-full text-lg">
             Download CV
