@@ -10,7 +10,11 @@ const Ticker = () => {
       <div className=" uppercase flex flex-row items-center justify-between text-animation -translate-x-full">
         {/* {ContinuousAnimation()} */}
         {texts.map((item, index) => {
-          return <span className="min-w-max mr-8">{item}</span>;
+          return (
+            <span key={index} className="min-w-max mr-8">
+              {item}
+            </span>
+          );
         })}
       </div>
     </div>
