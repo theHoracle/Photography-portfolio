@@ -32,33 +32,15 @@ body {
 .border-color {
   border-color: rgb(28, 28, 33);
 }
-
-@keyframes slideRight {
-  10% {
+@keyframes slide {
+  from {
     transform: translateX(100%);
   }
-  50% {
-    transform: translateX(50%);
-  }
-  100% {
-    transform: translateX(0);
-    opacity: 1;
-  }
-}
-
-@keyframes slideLeft {
-  0% {
-    transform: translateX(0);
-    opacity: 1;
-  }
-  100% {
+  to {
     transform: translateX(-100%);
-    opacity: 0;
   }
 }
 
-.text-animation {
-  animation: slideRight 4s ease-in backwards,
-    slideLeft 4s ease-out forwards infinite;
-  /* Adjust the duration and delay as needed */
+.text-slide-animation {
+  animation: slide 10s linear infinite;
 }

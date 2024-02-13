@@ -1,5 +1,6 @@
 "use client";
 import { useEffect, useState } from "react";
+import FlashOnIcon from "@mui/icons-material/FlashOn";
 
 const Ticker = () => {
   const [currentIndex, setCurrentIndex] = useState(0);
@@ -7,15 +8,18 @@ const Ticker = () => {
 
   return (
     <div className="w-screen bg-border-primary border-y-2 border-border-secondary py-3.5 -ml-6 flex items-center justify-center">
-      <div className=" uppercase flex flex-row items-center justify-between text-animation -translate-x-full">
-        {/* {ContinuousAnimation()} */}
+      <div className=" uppercase flex flex-row items-center justify-between text-slide-animation">
         {texts.map((item, index) => {
           return (
-            <span key={index} className="min-w-max mr-8">
-              {item}
-            </span>
+            <div className="min-w-max mr-8 flex items-center gap-4">
+              <FlashOnIcon />
+              <span key={index} className="">
+                {item}
+              </span>
+            </div>
           );
         })}
+        <FlashOnIcon />
       </div>
     </div>
   );
