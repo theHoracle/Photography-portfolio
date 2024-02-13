@@ -34,7 +34,10 @@ const AboutPage = () => {
           <ul className="flex flex-wrap  gap-2.5 w-full ">
             {about.map((info, index) => {
               return (
-                <li className="min-w-[158px] rounded-2xl h-28 border-2 border-border-secondary bg-border-primary flex flex-col flex-auto items-center justify-center">
+                <li
+                  key={index}
+                  className="min-w-[158px] rounded-2xl h-28 border-2 border-border-secondary bg-border-primary flex flex-col flex-auto items-center justify-center"
+                >
                   <Heading size="sm">{info[0]}</Heading>
                   <Paragraph size="sm" className="text-gray-500">
                     {info[1]}
