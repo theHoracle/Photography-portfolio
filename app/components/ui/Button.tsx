@@ -4,14 +4,14 @@ import { ButtonHTMLAttributes, FC, forwardRef } from "react";
 import { Loader2 } from "lucide-react";
 
 export const buttonVariants = cva(
-  "active:scale-95 inline-flex items-center justify-center text-sm font-medium transistion-color  focus:outline-none focus:ring-1 focus:ring-dark-400 focus:ring-offset-2 disabled:opacity-50  disabled:pointer-event-none",
+  "active:scale-95 inline-flex items-center justify-center text-sm font-medium transistion-color  focus:outline-none focus:ring-1 focus:ring-border-primary focus:ring-offset-2 disabled:opacity-50  disabled:pointer-event-none",
   {
     variants: {
       variant: {
         default:
           "bg-slate-900 text-white hover:bg-slate-800 dark:bg-slate-200 dark:text-slate-900 dark:hover:bg-slate-100",
         outline:
-          "bg-gray-900 hover:bg-slate-900 border border-color hover:bg-slate-10 ",
+          "bg-border-primary hover:bg-border-secondary border border-border-secondary ",
         ghost:
           "bg-transparent hover:bg-slate-100 dark:hover:bg-slate-800 dark:text-slate-400 data-[state=open]:bg-transparent dark:data-[state=open]:bg-transparent",
         link: "bg-transparent dark:bg-transparent underline-offset-4 hover:underline text-slate-900 dark:text-slate-100 hover:bg-transparent dark:hover:bg-transparent",

@@ -3,9 +3,11 @@ import Navbar from "./components/Navbar";
 
 export default function Home() {
   return (
-    <main className=" h-screen flex-col ">
+    <main className="flex flex-col ">
       <Navbar />
-      <Homepage />
+      <div className="mx-6 ">
+        <Homepage />
+      </div>
     </main>
   );
 }

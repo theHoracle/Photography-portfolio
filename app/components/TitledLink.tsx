@@ -2,6 +2,7 @@ import Link from "next/link";
 import Button from "./ui/Button";
 import Paragraph from "./ui/Paragraph";
 import { ArrowRight } from "lucide-react";
+import Heading from "./ui/Heading";
 
 type Props = {
   title: string;
@@ -15,7 +16,9 @@ const TitledLink = (props: Props) => {
   return (
     <div className="flex flex-col py-8  items-start border-b-2 border-color">
       <Paragraph variants="topic">{desc}</Paragraph>
-      <h2 className="uppercase text-3xl mb-4">{title}</h2>
+      <Heading size="sm" className="mb-4">
+        {title}
+      </Heading>
       {toGO ? (
         <Button variant="outline" size="lg">
           <Link
