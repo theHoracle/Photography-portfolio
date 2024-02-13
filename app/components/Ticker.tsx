@@ -11,11 +11,9 @@ const Ticker = () => {
       <div className=" uppercase flex flex-row items-center justify-between text-slide-animation">
         {texts.map((item, index) => {
           return (
-            <div className="min-w-max mr-8 flex items-center gap-4">
+            <div key={index} className="min-w-max mr-8 flex items-center gap-4">
               <FlashOnIcon />
-              <span key={index} className="">
-                {item}
-              </span>
+              <span className="">{item}</span>
             </div>
           );
         })}
