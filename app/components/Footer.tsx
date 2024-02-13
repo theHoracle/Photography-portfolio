@@ -19,7 +19,7 @@ const Footer = () => {
       <div className="flex flex-col gap-4 justify-between items-center text-border-secondary my-8 font-medium">
         <Paragraph
           size="sm"
-          className="flex items-center justify-between gap-1.5  "
+          className="flex items-center justify-between gap-1.5 "
         >
           <Link href="/" className="">
             Terms and Conditions

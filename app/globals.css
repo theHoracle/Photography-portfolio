@@ -34,9 +34,11 @@ body {
 }
 
 @keyframes slideRight {
-  0% {
+  10% {
     transform: translateX(100%);
-    opacity: 0;
+  }
+  50% {
+    transform: translateX(50%);
   }
   100% {
     transform: translateX(0);
@@ -56,6 +58,7 @@ body {
 }
 
 .text-animation {
-  animation: slideRight 2s ease forwards, slideLeft 2s ease forwards 3s;
+  animation: slideRight 4s ease-in backwards,
+    slideLeft 4s ease-out forwards infinite;
   /* Adjust the duration and delay as needed */
 }
