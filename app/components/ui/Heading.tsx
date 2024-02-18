@@ -2,12 +2,12 @@ import { cn } from "@/app/lib/utils";
 import { forwardRef, HTMLAttributes } from "react";
 import { cva, VariantProps } from "class-variance-authority";
 
-const headingVariants = cva("leading-tight uppercase", {
+const headingVariants = cva(" uppercase font-medium", {
   variants: {
     size: {
-      sm: "text-3xl",
-      default: "text-5xl",
-      lg: "text-6xl",
+      sm: "text-2xl md:text-3xl",
+      default: "text-4xl md:text-5xl",
+      lg: "text-5xl md:text-6xl",
     },
   },
   defaultVariants: {

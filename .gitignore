@@ -34,3 +34,6 @@ yarn-error.log*
 # typescript
 *.tsbuildinfo
 next-env.d.ts
+
+# firebase sdk
+the-photography-portfolio-firebase-adminsdk-sb3xq-5d5f879871.json

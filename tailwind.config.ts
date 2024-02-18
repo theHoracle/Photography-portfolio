@@ -17,6 +17,7 @@ const config: Config = {
         "background-color": "#0e0e10",
         "border-primary": "rgb(28, 28, 33)",
         "border-secondary": "rgb(47, 47, 55)",
+        "accent-color": "rgb(121,124,134)",
       },
     },
   },

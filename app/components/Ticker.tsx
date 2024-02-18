@@ -7,17 +7,22 @@ const Ticker = () => {
   const texts = ["Event Covreage", "Birthday Shoot", "Convocation Shoot"];
 
   return (
-    <div className="w-screen bg-border-primary border-y-2 border-border-secondary py-3.5 -ml-6 flex items-center justify-center">
-      <div className=" uppercase flex flex-row items-center justify-between text-slide-animation">
-        {texts.map((item, index) => {
-          return (
-            <div key={index} className="min-w-max mr-8 flex items-center gap-4">
-              <FlashOnIcon />
-              <span className="">{item}</span>
-            </div>
-          );
-        })}
-        <FlashOnIcon />
+    <div className="overflow-hidden w-screen">
+      <div className="bg-border-primary border-y-2 border-border-secondary py-3.5 -ml-6 flex items-center justify-center">
+        <div className=" uppercase flex flex-row items-center justify-between text-slide-animation">
+          {texts.map((item, index) => {
+            return (
+              <div
+                key={index}
+                className="min-w-max mr-8 flex items-center gap-4"
+              >
+                <FlashOnIcon />
+                <span className="">{item}</span>
+              </div>
+            );
+          })}
+          <FlashOnIcon />
+        </div>
       </div>
     </div>
   );

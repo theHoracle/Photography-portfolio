@@ -24,7 +24,7 @@ const Footer = () => {
           <Link href="/" className="">
             Terms and Conditions
           </Link>
-          <line>|</line>
+          <span>|</span>
           <Link href="/">Privacy Policy</Link>
         </Paragraph>
         <Paragraph size="sm">© 2024 theHoracle. All rights reserved.</Paragraph>

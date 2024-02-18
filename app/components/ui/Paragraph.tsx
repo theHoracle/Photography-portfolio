@@ -6,12 +6,12 @@ const paragraphVariants = cva("max-w-prose", {
   variants: {
     variants: {
       default: "text-center",
-      topic: "uppercase text-left text-gray-600 ",
+      topic: "uppercase text-left text-accent-color",
     },
     size: {
-      default: "text-base sm:text-lg",
-      sm: "text-sm sm:text-base",
-      lg: "text-lg",
+      default: "text-sm md:text-base",
+      sm: "text-xs md:text-sm",
+      lg: "text-base md:text-lg",
     },
   },
   defaultVariants: {

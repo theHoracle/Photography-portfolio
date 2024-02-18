@@ -1,0 +1,53 @@
+import { ArrowUpRight } from "lucide-react";
+import Button from "./Button";
+
+const Form = () => {
+  const inputClass =
+    "bg-transparent border-b-2 border-border-primary py-2 placeholder:uppercase placeholder:text-accent-color font-medium mb-1";
+
+  return (
+    <form className="flex flex-col gap-2 w-full">
+      <label htmlFor="firstName">First Name</label>
+      <input
+        type="text"
+        id="firstName"
+        placeholder="First name"
+        className={`${inputClass}`}
+      />
+      <label htmlFor="lastName">Last Name</label>
+      <input
+        type="text"
+        id="lastName"
+        placeholder="Last Name"
+        className={`${inputClass}`}
+      />
+      <label htmlFor="email">E-Mail</label>
+      <input
+        type="email"
+        id="email"
+        placeholder="Email Address"
+        className={`${inputClass}`}
+      />
+      <label htmlFor="phoneNumber">Phone Number</label>
+      <input
+        type="tel"
+        id="phoneNumber"
+        placeholder="Phone Number"
+        className={`${inputClass}`}
+      />
+      <label htmlFor="message">Your Message</label>
+      <textarea
+        id="message"
+        placeholder="Message"
+        className={`${inputClass}`}
+      ></textarea>
+      <div>
+        Send Message{" "}
+        <Button variant="super">
+          <ArrowUpRight />
+        </Button>
+      </div>
+    </form>
+  );
+};
+export default Form;
