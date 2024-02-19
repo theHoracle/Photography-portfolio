@@ -10,7 +10,7 @@ const SocialIcons = (props: Props) => {
   const smallPad = small ? "p-1" : "p-2";
   return (
     <div
-      className={`all-border border-border-primary bg-background-color flex items-center justify-between rounded-full ${smallPad} max-w-52`}
+      className={`all-border border-border-primary bg-background-color flex items-center justify-between gap-1.5 rounded-full ${smallPad}  max-w-52`}
     >
       <div
         className={`border-2 border-border-secondary bg-border-primary hover:bg-slate-900 rounded-full ${smallIcon}`}

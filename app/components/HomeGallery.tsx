@@ -2,7 +2,7 @@ import Image from "next/image";
 
 const HomeGallery = () => {
   return (
-    <div className="relative w-full h-48 ">
+    <div className="relative w-full h-48 md:h-96 ">
       <div className="flex h-full w-full">
         <div className="w-1/3 flex flex-col justify-between">
           <div className="h-2/3 border-4 border-background-color rounded-xl overflow-hidden">
@@ -60,7 +60,7 @@ const HomeGallery = () => {
         </div>
       </div>
       <div
-        className="h-32 w-1/3 absolute bottom-0 ml-12
+        className="h-32 md:h-64 w-1/3 absolute bottom-0 ml-12
       border-4  border-background-color rounded-2xl overflow-hidden flex items-center justify-center"
       >
         <div className="relative h-full">
@@ -75,7 +75,7 @@ const HomeGallery = () => {
           <div className="absolute top-0 right-0 h-full w-2/3 -mr-2 ">
             <div className="h-1/3 border-r-8  rounded-br-3xl p-6 border-background-color"></div>
 
-            <div className="h-2/3 border-4 rounded-2xl p-6 -mt-1 border-background-color mr-1"></div>
+            <div className="h-2/3 border-4 rounded-2xl p-6 -mt-1 md:mt-0.5 border-background-color mr-1"></div>
           </div>
           <div className=" h-2.5 w-1.5 bg-background-color absolute right-0 top-1/3"></div>
         </div>

@@ -1,5 +1,6 @@
 import { ArrowUpRight } from "lucide-react";
 import Button from "./Button";
+import Heading from "./Heading";
 
 const Form = () => {
   const inputClass =
@@ -41,9 +42,9 @@ const Form = () => {
         placeholder="Message"
         className={`${inputClass}`}
       ></textarea>
-      <div>
-        Send Message{" "}
-        <Button variant="super">
+      <div className="flex items-center gap-1">
+        <Heading size="sm">Send Message</Heading>
+        <Button variant="super" size="lg" className="rounded-full px-8">
           <ArrowUpRight />
         </Button>
       </div>

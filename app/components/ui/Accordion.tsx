@@ -2,7 +2,7 @@ import { ChevronDown } from "lucide-react";
 
 const Accordion = () => {
   return (
-    <div className="border-b-2 border-color py-8 px-4">
+    <div className="border-b-2 lg:border-y-2 border-color py-8 px-4 w-full md:w-1/2">
       <div className="flex items-center justify-between">
         <h4 className="text-xl uppercase">
           What type of photography do you specialize in?

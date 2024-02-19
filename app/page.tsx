@@ -3,9 +3,9 @@ import Navbar from "./components/Navbar";
 
 export default function Home() {
   return (
-    <main className="container flex flex-col overflow-hidden">
+    <main className="overflow-hidden flex flex-col ">
       <Navbar />
-      <div className="mx-6 ">
+      <div className="mx-6 md:mx-10">
         <Homepage />
       </div>
     </main>

@@ -9,7 +9,7 @@ const paragraphVariants = cva("max-w-prose", {
       topic: "uppercase text-left text-accent-color",
     },
     size: {
-      default: "text-sm md:text-base",
+      default: "text-sm",
       sm: "text-xs md:text-sm",
       lg: "text-base md:text-lg",
     },

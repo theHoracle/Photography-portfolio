@@ -6,7 +6,7 @@ const headingVariants = cva(" uppercase font-medium", {
   variants: {
     size: {
       sm: "text-2xl md:text-3xl",
-      default: "text-4xl md:text-5xl",
+      default: "text-3xl md:text-4xl",
       lg: "text-5xl md:text-6xl",
     },
   },

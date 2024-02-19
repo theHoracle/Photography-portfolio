@@ -23,6 +23,7 @@ const Homepage = () => {
             desc="Portfolio"
             title="Explore my photography work"
             toGO="/works"
+            movable
           />
           <PortfolioTab />
         </div>

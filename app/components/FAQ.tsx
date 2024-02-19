@@ -5,8 +5,10 @@ const FAQ = () => {
   return (
     <div>
       <TitledLink desc="FAQ" title="frequently asked questions" />
-      <Accordion />
-      <Accordion />
+      <div className="md:flex md:flex-wrap items-center justify-between flex-auto">
+        <Accordion />
+        <Accordion />
+      </div>
     </div>
   );
 };
