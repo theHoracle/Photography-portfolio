@@ -19,6 +19,11 @@ const config: Config = {
         "border-secondary": "rgb(47, 47, 55)",
         "accent-color": "rgb(121,124,134)",
       },
+      fontSize: {
+        xs: "0.635rem", // 10rem
+        sm: "0.75rem", // 12px
+        base: "0.875rem", // 14px
+      },
     },
   },
   plugins: [],

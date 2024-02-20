@@ -5,7 +5,7 @@ import Paragraph from "./Paragraph";
 
 const Hero = () => {
   return (
-    <div className="py-10  w-full flex flex-col md:flex-row items-center justify-between md:py-14">
+    <div className="py-10  w-full flex flex-col md:flex-row md:items-center md:justify-between md:py-14">
       <div>
         <Paragraph className="uppercase">Stunning Photography By</Paragraph>
         <Heading size="lg">theLatunji</Heading>

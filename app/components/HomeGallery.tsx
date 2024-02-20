@@ -19,7 +19,6 @@ const HomeGallery = () => {
             <Image
               src="/gallery/image1b.jpeg"
               alt="Im"
-              layout="responsive"
               width={1080}
               height={1350}
               className="scale-125 translate-y-1.5"
@@ -30,7 +29,6 @@ const HomeGallery = () => {
           <Image
             src="/gallery/image2.jpeg"
             alt="aother one"
-            layout="responsive"
             width={1344}
             height={1080}
             className="scale-150 translate-y-10 "
@@ -51,7 +49,6 @@ const HomeGallery = () => {
             <Image
               src="/gallery/image3b.jpeg"
               alt="Im"
-              layout="responsive"
               width={1080}
               height={1350}
               className="-translate-y-1.5"
@@ -69,7 +66,6 @@ const HomeGallery = () => {
             alt="x"
             width={1344}
             height={1080}
-            layout="responsive"
             className="scale-105"
           />
           <div className="absolute top-0 right-0 h-full w-2/3 -mr-2 ">

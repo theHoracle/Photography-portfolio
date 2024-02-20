@@ -9,8 +9,8 @@ import Heading from "./ui/Heading";
 const Testimonials = () => {
   return (
     <div>
-      <div className="flex flex-col md:flex-row md:items-end md:justify-between  py-8  items-start border-b-2 border-color">
-        <div>
+      <div className="flex flex-col md:flex-row md:items-end md:justify-between  py-8  items-start border-b-2 mb-4 border-color">
+        <div className="">
           <Paragraph variants="topic">Testimonials</Paragraph>
           <Heading size="sm" className="mb-4">
             what my client say
@@ -18,7 +18,7 @@ const Testimonials = () => {
           <p className="text-accent-color">Total Reviews</p>
           <Heading size="sm">323</Heading>
         </div>
-        <div className="md:flex items-center justify- gap-4">
+        <div className="md:flex items-center  gap-4">
           <span className="hidden md:inline-block">
             <LeftRightButton />
           </span>
@@ -35,7 +35,9 @@ const Testimonials = () => {
         </div>
       </div>
       <ReviewCard />
-      <LeftRightButton />
+      <div className="md:hidden">
+        <LeftRightButton />
+      </div>
     </div>
   );
 };

@@ -6,12 +6,12 @@ const ListRender = () => {
     [["services"], ["Potraits", "Events", "Commercial"]],
   ];
   return (
-    <div className="flex flex-wrap text-sm">
+    <div className="flex flex-wrap  md:justify-between text-sm md:py-6">
       {footerLinks.map((links, index) => {
         return (
           <ul
             key={index}
-            className="uppercase flex flex-col items-start flex-auto py-4 w-1/2 gap-1 pr-4"
+            className="uppercase flex flex-col items-start flex-auto py-4 w-1/2 md:w-fit gap-1 pr-4"
           >
             <h5 className="text-border-secondary  font-semibold">{links[0]}</h5>
             {links[1].map((link, index) => {
