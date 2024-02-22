@@ -11,7 +11,7 @@ type Props = {
 const PageIntro = (props: Props) => {
   const { page, head, note } = props;
   return (
-    <div>
+    <div className="my-8">
       <Image
         src="/img/j-cole.webp"
         alt="Jcole singing"

@@ -1,12 +1,12 @@
 import Link from "next/link";
-import Hero from "./ui/Hero";
-import ListRender from "./ui/ListRender";
-import Paragraph from "./ui/Paragraph";
-import SocialIcons from "./ui/SocialIcons";
-import Ticker from "./Ticker";
-import Heading from "./ui/Heading";
+import Hero from "../ui/Hero";
+import ListRender from "../ui/ListRender";
+import Paragraph from "../ui/Paragraph";
+import SocialIcons from "../ui/SocialIcons";
+import Ticker from "../Ticker";
+import Heading from "../ui/Heading";
 import { ArrowUpRightIcon } from "lucide-react";
-import Button from "./ui/Button";
+import Button from "../ui/Button";
 
 const Footer = () => {
   return (
@@ -16,7 +16,7 @@ const Footer = () => {
       </h1>
       <Ticker />
       <div className="md:flex items-center ">
-        <div className="py-10 md:py-[72px] md:border-y-2 md:border-r-0  px-6 flex flex-col gap-4 border-x-2 border-border-primary ">
+        <div className="py-10 md:py-[72px] md:border-0  px-6 flex flex-col gap-4 border-x-2 border-border-primary ">
           <Paragraph variants="topic">
             A more meaningful home for Photography
           </Paragraph>

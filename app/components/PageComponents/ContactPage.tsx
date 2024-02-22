@@ -1,12 +1,12 @@
 import Image from "next/image";
-import Footer from "./Footer";
-import Navbar from "./Navbar";
-import SocialIcons from "./ui/SocialIcons";
-import Heading from "./ui/Heading";
-import Paragraph from "./ui/Paragraph";
+import Footer from "../MainComponents/Footer";
+import Navbar from "../MainComponents/Navbar";
+import SocialIcons from "../ui/SocialIcons";
+import Heading from "../ui/Heading";
+import Paragraph from "../ui/Paragraph";
 import Link from "next/link";
 import { ArrowUpRight } from "lucide-react";
-import Form from "./ui/Form";
+import Form from "../ui/Form";
 
 const ContactPage = () => {
   return (

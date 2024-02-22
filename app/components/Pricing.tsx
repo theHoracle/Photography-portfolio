@@ -1,3 +1,4 @@
+"use client";
 import Link from "next/link";
 import Image from "next/image";
 
@@ -5,44 +6,67 @@ import Heading from "../components/ui/Heading";
 import Paragraph from "../components/ui/Paragraph";
 import { ArrowUpRight } from "lucide-react";
 import LeftRightButton from "../components/ui/LeftRightButton";
+import db from "@/firebase/config";
+import { getDocs, collection } from "firebase/firestore";
+import { useState, useEffect } from "react";
+import ArrowLink from "./ui/ArrowLink";
 
+type ServicePlan = {
+  title: string;
+  imgSources: string[];
+  desc: string;
+  options: {};
+};
 const Pricing = () => {
+  const [services, setServices] = useState<ServicePlan[]>();
+
+  useEffect(() => {
+    const fetchServices = async () => {
+      try {
+        const querySnapshot = await getDocs(collection(db, "services"));
+        const servicesArray: ServicePlan[] = [];
+        querySnapshot.forEach((doc) => {
+          const docData = doc.data();
+          servicesArray.push({
+            title: docData.title,
+            imgSources: docData.imgSources,
+            desc: docData.desc,
+            options: docData.options,
+          });
+        });
+        setServices(servicesArray);
+      } catch (error) {
+        console.error("Error fetching services:", error);
+        // Handle errors gracefully
+      }
+    };
+
+    fetchServices();
+  }, []);
+
+  console.log(services);
+
   return (
     <div>
-      <div className="my-10 flex flex-col gap-4">
-        <Heading size="sm">potrait photography</Heading>
-        <Paragraph className="text-accent-color">
-          Lorem ipsum dolor sit amet consectetur adipisicing elit. Facere
-          temporibus repudiandae doloribus sit earum quo autem odit dolorum
-          accusamus consectetur, ipsum ut cum error, rerum minima pariatur harum
-          exercitationem iure.
-        </Paragraph>
+      <div className="border-t-2 border-border-primary py-8">
+        <div className="flex items-start flex-col gap-4">
+          <Paragraph variants="topic" className="text-3xl">
+            {services?.[0].title}
+          </Paragraph>
+          <Paragraph className="text-accent-color">
+            {services?.[0].desc}
+          </Paragraph>
+          <ArrowLink />
+        </div>
         <div>
-          <Link
-            href="/portfolio"
-            className="uppercase flex items-center justify-start
-    text-sm border-b-2 mr-auto border-border-primary max-w-max"
-          >
-            view project <ArrowUpRight height={30} />
-          </Link>
-          <div className="flex flex-col items-center">
-            <div className="rounded-2xl overflow-hidden mt-4">
-              <Image
-                src="/img/Grammys.jpeg"
-                alt="some image"
-                width={1000}
-                height={1000}
-              />
-            </div>
-            <div className="bg-background-color -translate-y-12 w-1/2 flex flex-col h-14  items-center rounded-tl-3xl rounded-tr-3xl ">
-              <div className="-my-7">
-                <LeftRightButton />
-              </div>
-            </div>
-          </div>
+          <Image
+            width={2000}
+            height={2000}
+            alt="e"
+            src={services?.[0].imgSources[0] || ""}
+          />
         </div>
       </div>
-      <div></div>
     </div>
   );
 };

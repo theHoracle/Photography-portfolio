@@ -1,13 +1,13 @@
-import AboutCard from "./AboutCard";
-import FAQ from "./FAQ";
-import Footer from "./Footer";
-import HomeGallery from "./HomeGallery";
-import Services from "./Services";
-import Testimonials from "./Testimonials";
-import Hero from "./ui/Hero";
-import PortfolioTab from "./PortfolioTab";
-import TitledLink from "./TitledLink";
-import Ticker from "./Ticker";
+import AboutCard from "../AboutCard";
+import FAQ from "../MainComponents/FAQ";
+import Footer from "../MainComponents/Footer";
+import HomeGallery from "../HomeGallery";
+import Services from "../Services";
+import Testimonials from "../Testimonials";
+import Hero from "../ui/Hero";
+import PortfolioTab from "../PortfolioTab";
+import TitledLink from "../TitledLink";
+import Ticker from "../Ticker";
 
 const Homepage = () => {
   return (

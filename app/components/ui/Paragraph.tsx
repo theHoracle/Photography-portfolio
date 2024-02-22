@@ -2,7 +2,7 @@ import { cn } from "@/lib/utils";
 import { forwardRef, HTMLAttributes } from "react";
 import { cva, VariantProps } from "class-variance-authority";
 
-const paragraphVariants = cva("max-w-prose", {
+const paragraphVariants = cva("max-w-prose lg:max-w-full", {
   variants: {
     variants: {
       default: "text-center",

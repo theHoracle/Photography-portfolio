@@ -1,13 +1,13 @@
 import Image from "next/image";
-import Homepage from "../components/Homepage";
-import Navbar from "../components/Navbar";
+import Homepage from "../components/PageComponents/Homepage";
+import Navbar from "../components/MainComponents/Navbar";
 import Paragraph from "../components/ui/Paragraph";
 import Heading from "../components/ui/Heading";
 import Ticker from "../components/Ticker";
 import PortfolioCover from "../components/PortfolioCover";
-import FAQ from "../components/FAQ";
+import FAQ from "../components/MainComponents/FAQ";
 import Testimonials from "../components/Testimonials";
-import Footer from "../components/Footer";
+import Footer from "../components/MainComponents/Footer";
 import PageIntro from "../components/PageIntro";
 
 export default function Portfolio() {

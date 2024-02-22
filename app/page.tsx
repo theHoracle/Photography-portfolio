@@ -1,5 +1,5 @@
-import Homepage from "./components/Homepage";
-import Navbar from "./components/Navbar";
+import Homepage from "./components/PageComponents/Homepage";
+import Navbar from "./components/MainComponents/Navbar";
 
 export default function Home() {
   return (

@@ -1,5 +1,5 @@
-import TitledLink from "./TitledLink";
-import Accordion from "./ui/Accordion";
+import TitledLink from "../TitledLink";
+import Accordion from "../ui/Accordion";
 
 const FAQ = () => {
   return (
