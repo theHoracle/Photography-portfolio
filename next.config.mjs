@@ -1,7 +1,7 @@
 /** @type {import('next').NextConfig} */
 const nextConfig = {
   images: {
-    domains: ["i.postimg.cc"], // Replace with your actual image hosting domain
+    remotePatterns: [{ protocol: "https", hostname: "i.postimg.cc" }], // Replace with your actual image hosting domain
   },
 };
 
