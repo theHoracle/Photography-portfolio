@@ -1,12 +1,12 @@
 "use client";
 //Using screen size would render mobile nav or desktop nav,
 import { MenuIcon } from "lucide-react";
-import { useRouter } from "next/navigation";
+import { useRouter, usePathname } from "next/navigation";
 import Link from "next/link";
 import Button from "../ui/Button";
 
 const Navbar = () => {
-  const router = useRouter();
+  const pathname = usePathname();
 
   // add styles based on active page
   return (
@@ -31,16 +31,32 @@ const Navbar = () => {
           </div>
           <div className="">
             <ul className=" capitalize flex items-center mt-6 text-sm lg:text-base">
-              <li className="border-2 rounded-tl-lg border-border-primary py-4 px-6 ">
+              <li
+                className={`border-2 rounded-tl-lg border-border-primary py-4 px-6 ${
+                  pathname === "/" ? "bg-border-primary" : ""
+                }`}
+              >
                 <Link href="/">Home</Link>
               </li>
-              <li className="border-y-2 border-border-primary py-4 px-6 ">
+              <li
+                className={`border-y-2 border-border-primary py-4 px-6 ${
+                  pathname === "/about" ? "bg-border-primary" : ""
+                } `}
+              >
                 <Link href="/about">About me</Link>
               </li>
-              <li className="border-y-2 border-l-2 border-border-primary py-4 px-6 ">
+              <li
+                className={`border-y-2 border-l-2 border-border-primary py-4 px-6 ${
+                  pathname === "/portfolio" ? "bg-border-primary" : ""
+                }`}
+              >
                 <Link href="/portfolio">Portfolio</Link>
               </li>
-              <li className="border-2 rounded-tr-lg border-border-primary py-4 px-6 ">
+              <li
+                className={`border-2 rounded-tr-lg border-border-primary py-4 px-6 ${
+                  pathname === "/services" ? "bg-border-primary" : ""
+                }`}
+              >
                 <Link href="/services">Services</Link>
               </li>
             </ul>
