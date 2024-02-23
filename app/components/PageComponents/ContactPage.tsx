@@ -34,32 +34,35 @@ const ContactPage = () => {
           </Paragraph>
         </div>
       </div>
-      <div className="text-accent-color flex flex-col gap-4 items-start py-12 border-b-2 border-border-primary">
-        <Heading className="uppercase" size="sm">
-          Contact Information
-        </Heading>
-        <Paragraph>
-          Lorem ipsum, dolor sit amet consectetur adipisicing elit. Quas saepe
-          laborum eos! Tenetur alias corrupti labore asperiores sunt nemo nihil,
-          et perferendis dolor ipsa tempore.
-        </Paragraph>
+      <div className="text-accent-color flex flex-col md:flex-row gap-4 items-start md:items-center py-12 border-b-2 border-border-primary">
+        <div className="md:w-2/5 ">
+          <Heading className="uppercase" size="sm">
+            Contact Information
+          </Heading>
+          <Paragraph>
+            Lorem ipsum, dolor sit amet consectetur adipisicing elit. Quas saepe
+            laborum eos! Tenetur alias corrupti labore asperiores sunt nemo
+            nihil, et perferendis dolor ipsa tempore.
+          </Paragraph>
+        </div>
+        <div className="flex flex-col items-start md:flex-row gap-4">
+          <Link
+            href="/portfolio"
+            className="uppercase flex items-center justify-end  text-sm border-b-2 border-border-primary text-white"
+          >
+            +234-705-8212-014 <ArrowUpRight height={30} />
+          </Link>
 
-        <Link
-          href="/portfolio"
-          className="uppercase flex items-center justify-end  text-sm border-b-2 border-border-primary text-white"
-        >
-          +234-705-8212-014 <ArrowUpRight height={30} />
-        </Link>
-
-        <Link
-          href="mail:theHoracle@gmail.com"
-          className=" flex items-center justify-end  text-sm border-b-2 border-border-primary text-white"
-        >
-          theHoracle@gmail.com <ArrowUpRight height={30} />
-        </Link>
+          <Link
+            href="mail:theHoracle@gmail.com"
+            className=" flex items-center justify-end  text-sm border-b-2 border-border-primary text-white"
+          >
+            theHoracle@gmail.com <ArrowUpRight height={30} />
+          </Link>
+        </div>
       </div>
-      <div className="my-8 flex flex-col gap-4 items-start">
-        <div className="text-accent-color my-4">
+      <div className="my-8 flex flex-col md:flex-row gap-4 items-start">
+        <div className="text-accent-color my-4 w-full md:w-2/5">
           <Heading className="uppercase" size="sm">
             Send Me a Message
           </Heading>
@@ -69,7 +72,9 @@ const ContactPage = () => {
             nihil, et perferendis dolor ipsa tempore.
           </Paragraph>
         </div>
-        <Form />
+        <div className="w-full md:w-3/5">
+          <Form />
+        </div>
       </div>
     </div>
   );

@@ -1,9 +1,10 @@
-import Pricing from "../Pricing";
+import Plans from "../Plans";
+import Testimonials from "../Testimonials";
 
 const ServicesPage = () => {
   return (
     <div>
-      <Pricing />
+      <Plans />
     </div>
   );
 };
