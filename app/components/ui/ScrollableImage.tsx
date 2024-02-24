@@ -37,7 +37,7 @@ const ScrollableImage = ({ imgArray }: Props) => {
           className=" object-cover inset-0 w-full h-full rounded-xl"
         />
       </div>
-      <div className="-translate-y-1/2 w-1/3 bg-background-color py-1.5 px-4 rounded-full mx-auto">
+      <div className="-translate-y-1/2 w-1/3 bg-background-color py-1.5 px-4 rounded-full mx-auto min-w-max">
         <LeftRightButton
           onClickLeftButton={moveLeft}
           onClickRightButton={moveRight}

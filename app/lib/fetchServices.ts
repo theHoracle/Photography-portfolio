@@ -3,7 +3,7 @@ import { getDocs, collection } from "firebase/firestore";
 
 const fetchServices = async () => {
   // const [services, setServices] = useState<ServicePlan[]>();
-  const services1: ServicePlan[] = [];
+  const services: ServicePlan[] = [];
   try {
     const querySnapshot = await getDocs(collection(db, "services"));
     const array: ServicePlan[] = [];
@@ -17,36 +17,11 @@ const fetchServices = async () => {
         options: docData.options,
       });
     });
-    services1.push(...array);
-  } catch {}
-
-  // useEffect(() => {
-  //   const fetchService = async () => {
-  //     try {
-  //       const querySnapshot = await getDocs(collection(db, "services"));
-  //       const servicesArray: ServicePlan[] = [];
-  //       querySnapshot.forEach((doc) => {
-  //         const docData = doc.data();
-  //         console.log(docData.title);
-  //         servicesArray.push({
-  //           title: docData.title,
-  //           imgSources: docData.imgSources,
-  //           desc: docData.desc,
-  //           options: docData.options,
-  //         });
-  //       });
-  //       setServices(servicesArray);
-  //     } catch (error) {
-  //       console.error("Error fetching services:", error);
-  //       // Handle errors gracefully
-  //     }
-  //   };
-
-  //   fetchService();
-  // }, []);
-
-  console.log(services1);
-  return services1;
+    services.push(...array);
+  } catch (err) {
+    console.log(err);
+  }
+  return services;
 };
 
 export default fetchServices;
