@@ -1,10 +1,11 @@
 import Plans from "../Plans";
-import Testimonials from "../Testimonials";
+import fetchServices from "@/app/lib/fetchServices";
 
-const ServicesPage = () => {
+const ServicesPage = async () => {
+  const services = await fetchServices();
   return (
     <div>
-      <Plans />
+      <Plans services={services} />
     </div>
   );
 };

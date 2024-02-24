@@ -3,3 +3,10 @@ type Options = {
   descList: string[];
   price: string;
 };
+
+type ServicePlan = {
+  title: string;
+  imgSources: string[];
+  desc: string;
+  options: Options[];
+};

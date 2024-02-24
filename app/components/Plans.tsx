@@ -1,54 +1,19 @@
-"use client";
-import Link from "next/link";
-import Image from "next/image";
-
-import Heading from "./ui/Heading";
 import Paragraph from "./ui/Paragraph";
-import { ArrowUpRight } from "lucide-react";
-import LeftRightButton from "./ui/LeftRightButton";
 import db from "@/firebase/config";
-import { getDocs, collection, orderBy } from "firebase/firestore";
+import { getDocs, collection } from "firebase/firestore";
 import { useState, useEffect } from "react";
 import ArrowLink from "./ui/ArrowLink";
 import ScrollableImage from "./ui/ScrollableImage";
 import PricesBox from "./PricesBox";
 
-type ServicePlan = {
-  title: string;
-  imgSources: string[];
-  desc: string;
-  options: Options[];
+type Props = {
+  services: ServicePlan[] | undefined;
 };
-const Plans = () => {
-  const [services, setServices] = useState<ServicePlan[]>();
 
-  useEffect(() => {
-    const fetchServices = async () => {
-      try {
-        const querySnapshot = await getDocs(collection(db, "services"));
-        const servicesArray: ServicePlan[] = [];
-        querySnapshot.forEach((doc) => {
-          const docData = doc.data();
-          console.log(docData.title);
-          servicesArray.push({
-            title: docData.title,
-            imgSources: docData.imgSources,
-            desc: docData.desc,
-            options: docData.options,
-          });
-        });
-        setServices(servicesArray);
-      } catch (error) {
-        console.error("Error fetching services:", error);
-        // Handle errors gracefully
-      }
-    };
-
-    fetchServices();
-  }, []);
+const Plans = (props: Props) => {
+  const { services } = props;
 
   console.log(services);
-
   return (
     <div>
       {services &&

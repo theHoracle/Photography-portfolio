@@ -7,6 +7,7 @@ import Button from "../ui/Button";
 
 const Navbar = () => {
   const pathname = usePathname();
+  const router = useRouter();
 
   // add styles based on active page
   return (
@@ -62,7 +63,14 @@ const Navbar = () => {
             </ul>
           </div>
           <div>
-            <Button variant="outline">Contact Us</Button>
+            <Button
+              variant="outline"
+              onClick={() => {
+                router.push("/contact");
+              }}
+            >
+              Contact Us
+            </Button>
           </div>
         </div>
       </div>
