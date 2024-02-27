@@ -44,13 +44,8 @@ const DesktopNavbar = () => {
         </ul>
       </div>
       <div>
-        <Button
-          variant="outline"
-          onClick={() => {
-            router.push("/contact");
-          }}
-        >
-          Contact Us
+        <Button variant="outline">
+          <Link href="/contact"> Contact Us</Link>
         </Button>
       </div>
     </div>

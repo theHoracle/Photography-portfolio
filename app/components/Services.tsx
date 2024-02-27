@@ -9,7 +9,7 @@ import Heading from "./ui/Heading";
 
 const Service = () => {
   return (
-    <div>
+    <div className="my-8">
       <TitledLink
         movable
         title="my photography services"
@@ -17,24 +17,25 @@ const Service = () => {
         toGO="/services"
       />
       <div
-        className="md:flex md:w-full md:flex-row-reverse md:gap-6
+        className="md:flex md:w-full my-6 md:flex-row-reverse md:gap-6
       "
       >
-        <div className="my-8 md:my-0 md:w-1/2 ">
+        <div className="my-8 md:my-0 md:w-1/2 rounded-2xl  md:rounded-bl-[80px] overflow-hidden">
           <Image
-            className="rounded-2xl  md:rounded-bl-[80px] md:w-full"
+            className="object-cover md:h-full md:w-full"
             src="/img/j-cole.webp"
             alt="J-cole in the lights"
             width={380}
             height={253}
           />
         </div>
-        <div className="">
+        <div className="md:w-1/2">
           <div>
             <Heading className="flex items-center justify-start gap-2">
               Events{" "}
               <Button variant="super" size="roundedXl">
-                <ArrowUpRightIcon />{" "}
+                <ArrowUpRightIcon />
+                {""}
               </Button>
             </Heading>
             <Paragraph className="text-sm">

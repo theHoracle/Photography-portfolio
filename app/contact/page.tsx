@@ -5,7 +5,7 @@ import Testimonials from "../components/Testimonials";
 
 export default function Contact() {
   return (
-    <div>
+    <div className="flex flex-col">
       <Navbar />
       <div className="mx-6">
         <ContactPage />

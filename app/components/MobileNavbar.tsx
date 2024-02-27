@@ -57,7 +57,7 @@ const MobileNavbar = () => {
           </div>
           <div className="">
             <Button variant="outline" size="xl">
-              Contact Us
+              <Link href="/contact">Contact Us</Link>
             </Button>
           </div>
         </div>

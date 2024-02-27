@@ -8,7 +8,7 @@ import Footer from "../components/MainComponents/Footer";
 
 export default function Services() {
   return (
-    <div>
+    <div className="flex flex-col">
       <Navbar />
       <div className="mx-6">
         <PageIntro
