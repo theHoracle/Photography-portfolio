@@ -12,7 +12,7 @@ const LeftRightButton = (props: Props) => {
         onClick={onClickLeftButton}
         role="button"
         aria-label="left-button"
-        className="border border-border-secondary rounded-full bg-[rgb(28,28,33)] p-2"
+        className="border border-border-secondary rounded-full bg-border-primary p-2 hover:bg-border-secondary"
       >
         <ChevronLeft height={30} width={30} />
       </div>
@@ -20,7 +20,7 @@ const LeftRightButton = (props: Props) => {
         onClick={onClickRightButton}
         role="button"
         aria-label="right-button"
-        className="border border-border-secondary rounded-full bg-[rgb(28,28,33)] p-2"
+        className="border border-border-secondary rounded-full bg-border-primary p-2 hover:bg-border-secondary"
       >
         <ChevronRight height={30} width={30} />
       </div>

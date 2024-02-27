@@ -16,7 +16,7 @@ const Accordion = (props: Props) => {
   console.log(index);
   return (
     <div
-      className={`border-b-2 lg:border-y-2 border-color py-8 px-4 w-full md:w-1/2 ${
+      className={`border-b-2 lg:border-y-2 border-color py-8 px-4 w-full md:w-1/2 text-accent-color ${
         index % 2 === 0 ? "md:border-r-2 border-border-primary" : ""
       }`}
     >
@@ -24,7 +24,7 @@ const Accordion = (props: Props) => {
         <h4 className="text-xl uppercase">{question}?</h4>
         <div
           onClick={() => setShowFaq(!showFaq)}
-          className="border-2 border-color rounded-full p-4 "
+          className="border-2 border-border-primary rounded-full p-4 "
         >
           {showFaq ? (
             <ChevronUp height={30} width={30} />
@@ -33,7 +33,9 @@ const Accordion = (props: Props) => {
           )}
         </div>
       </div>
-      <div className={`py-4 text-accent-color ${showFaq ? "block" : "hidden"}`}>
+      <div
+        className={`py-4 text-border-secondary ${showFaq ? "block" : "hidden"}`}
+      >
         <Paragraph size="xl">{answer}</Paragraph>
       </div>
     </div>

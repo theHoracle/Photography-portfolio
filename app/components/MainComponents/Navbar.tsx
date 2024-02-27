@@ -6,7 +6,7 @@ import MobileNavbar from "../MobileNavbar";
 const Navbar = () => {
   // add styles based on active page
   return (
-    <div className="w-screen mb-28 md:mb-0">
+    <div className="w-screen mb-24 md:mb-0">
       <div className="md:hidden w-full z-50 bg-background-color fixed">
         <MobileNavbar />
       </div>

@@ -10,9 +10,9 @@ import Form from "../ui/Form";
 
 const ContactPage = () => {
   return (
-    <div>
+    <div className="my-8">
       <div>
-        <div className="flex flex-col items-center">
+        <div className="flex flex-col items-center gap-4">
           <Image
             src="/img/j-cole.webp"
             alt="J Cole"
@@ -21,7 +21,7 @@ const ContactPage = () => {
             className="rounded-2xl "
           />
           <div>
-            <SocialIcons small />
+            <SocialIcons />
           </div>
         </div>
         <div className="flex flex-col gap-1 border-b-2 border-border-primary py-8">

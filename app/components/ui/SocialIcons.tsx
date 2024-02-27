@@ -7,25 +7,25 @@ type Props = {
 const SocialIcons = (props: Props) => {
   const { small } = props;
   const smallIcon = small ? "scale-90 overflow-hidden" : " ";
-  const smallPad = small ? "p-1" : "p-2";
+
   return (
     <div
-      className={`all-border border-border-primary bg-background-color flex items-center justify-between gap-1.5 rounded-full ${smallPad}  max-w-52`}
+      className={`all-border border-border-primary bg-background-color flex items-center justify-between gap-1.5 rounded-full p-1 md:p-2 max-w-48 md:max-w-52`}
     >
       <div
-        className={`border-2 border-border-secondary bg-border-primary hover:bg-slate-900 rounded-full ${smallIcon}`}
+        className={`border-2 border-border-secondary bg-border-primary hover:bg-border-secondary scale-90 md:scale-100  rounded-full ${smallIcon}`}
       >
-        <SocialIcon bgColor="transparent" url="www.facebook.com" />
+        <SocialIcon bgColor="transparent" url="https://www.facebook.com" />
       </div>
       <div
-        className={`border-2 border-border-secondary bg-border-primary hover:bg-slate-900 rounded-full ${smallIcon}`}
+        className={`border-2 border-border-secondary bg-border-primary hover:bg-border-secondary rounded-full scale-90 md:scale-100 ${smallIcon}`}
       >
-        <SocialIcon bgColor="transparent" url="www.x.com" />
+        <SocialIcon bgColor="transparent" url="https://www.x.com" />
       </div>
       <div
-        className={`border-2 bg-border-primary border-border-secondary hover:bg-slate-900 rounded-full ${smallIcon}`}
+        className={`border-2 bg-border-primary border-border-secondary hover:bg-border-secondary rounded-full scale-90 md:scale-100 ${smallIcon}`}
       >
-        <SocialIcon bgColor="transparent" url="www.instagram.com" />
+        <SocialIcon bgColor="transparent" url="https://www.instagram.com" />
       </div>
     </div>
   );

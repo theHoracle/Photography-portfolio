@@ -21,7 +21,7 @@ const PortfolioTab = () => {
               src="/gallery/image2.jpeg"
               width={380}
               height={250}
-              className="min-h-full w-auto"
+              className="object-cover min-h-full w-full "
             />
           </div>
           <div className="flex items-start justify-between">

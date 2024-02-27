@@ -15,12 +15,12 @@ const MobileNavbar = () => {
   ];
   return (
     <div className="relative  ">
-      <div className=" w-full  h-28 border-b-2 border-border-primary px-6 ">
-        <div className="h-full mt-[-3px] border-l-2 border-r-2 pt-6 border-border-primary flex justify-between items-end">
-          <div className="p-8">
+      <div className=" w-full h-24 border-b-2 border-border-primary px-6 ">
+        <div className="h-full mt-[-3px] border-l-2 border-r-2  border-border-primary flex justify-between items-end">
+          <div className="p-6">
             <Link href="/">Not Our Logo</Link>
           </div>
-          <div className="border-t-2 border-l-2 border-border-primary rounded-tl-3xl p-6">
+          <div className="border-t-2 border-l-2 border-border-primary rounded-tl-3xl p-4 flex items-end justify-center">
             <button
               className="transition-all"
               onClick={() => {
@@ -37,7 +37,7 @@ const MobileNavbar = () => {
         </div>
       </div>
       <div
-        className={`absolute bg-background-color top-28 right-0 z-10 h-lvh ${
+        className={`absolute bg-background-color top-24 right-0 z-10 h-lvh ${
           menuState ? "w-2/3" : " w-0 hidden"
         }`}
       >
@@ -48,7 +48,7 @@ const MobileNavbar = () => {
                 <Link
                   href={link[0]}
                   key={index}
-                  className="text-lg uppercase transition du"
+                  className="text-lg uppercase transition border-b-2 border-r-2 text-center py-1 border-border-primary"
                 >
                   {link[1]}
                 </Link>

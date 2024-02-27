@@ -38,7 +38,9 @@ const Testimonials = () => {
           </Button>
         </div>
       </div>
-      <ReviewCard />
+      <div className="flex items-center md:items-start justify-center md:justify-between">
+        <ReviewCard />
+      </div>
       <div className="md:hidden">
         <LeftRightButton />
       </div>
