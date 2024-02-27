@@ -12,9 +12,9 @@ const Hero = () => {
       </div>
       <div className="pt-8 md:pt-0">
         <Heading size="sm">
-          <span className="flex justify-start items-center gap-2">
+          <span className="flex justify-start items-center gap-2 ">
             Let&apos;s
-            <Button variant="super" size="xl">
+            <Button variant="super" size="roundedXl">
               <ArrowUpRightIcon />
             </Button>
           </span>

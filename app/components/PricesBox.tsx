@@ -6,14 +6,14 @@ const PricesBox = ({ options }: Options[] | any) => {
   if (!options || !Array.isArray(options)) {
     return null; // or handle it in another way, like displaying a message
   }
-  console.log(options);
+
   return (
     <div>
       {options.map((option: Options, index: number) => {
         return (
           <div
             key={index}
-            className="flex flex-col md:flex-row gap-6 md:justify-between"
+            className="flex flex-col md:flex-row gap-6 md:justify-between border-t-2 border-border-primary py-6 md:px-4 mb-2"
           >
             <div className="text-accent-color ">
               <Paragraph className="capitalize text-xl md:text-base">

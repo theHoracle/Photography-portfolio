@@ -33,7 +33,7 @@ const Service = () => {
           <div>
             <Heading className="flex items-center justify-start gap-2">
               Events{" "}
-              <Button variant="super" size="xl">
+              <Button variant="super" size="roundedXl">
                 <ArrowUpRightIcon />{" "}
               </Button>
             </Heading>

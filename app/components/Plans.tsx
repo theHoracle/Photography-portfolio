@@ -12,8 +12,6 @@ type Props = {
 
 const Plans = (props: Props) => {
   const { services } = props;
-
-  console.log(services);
   return (
     <div>
       {services &&
@@ -34,7 +32,7 @@ const Plans = (props: Props) => {
                   <ScrollableImage imgArray={service.imgSources} />
                 </div>
               </div>
-              <div className="border-t-2 border-border-primary py-6 px-4">
+              <div className="">
                 <PricesBox options={service.options} />
               </div>
             </div>

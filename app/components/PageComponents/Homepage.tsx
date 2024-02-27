@@ -18,15 +18,8 @@ const Homepage = () => {
         <HomeGallery />
         <AboutCard />
         <Services />
-        <div>
-          <TitledLink
-            desc="Portfolio"
-            title="Explore my photography work"
-            toGO="/works"
-            movable
-          />
-          <PortfolioTab />
-        </div>
+
+        <PortfolioTab />
         <FAQ />
         <Testimonials />
       </main>

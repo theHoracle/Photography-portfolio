@@ -9,7 +9,7 @@ const fetchServices = async () => {
     const array: ServicePlan[] = [];
     querySnapshot.forEach((doc) => {
       const docData = doc.data();
-      console.log(docData.title);
+
       array.push({
         title: docData.title,
         imgSources: docData.imgSources,
