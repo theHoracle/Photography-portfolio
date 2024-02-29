@@ -6,6 +6,8 @@ import Link from "next/link";
 import Paragraph from "./ui/Paragraph";
 import Heading from "./ui/Heading";
 
+import PopupToggle from "./PopupToggle";
+
 const Testimonials = () => {
   return (
     <div>
@@ -17,9 +19,14 @@ const Testimonials = () => {
               what my client say
             </Heading>
           </div>
-          <div>
-            <Paragraph className="text-accent-color">Total Reviews</Paragraph>
-            <Heading size="sm">323</Heading>
+          <div className="md:flex md:items-end md:justify-between">
+            <div className="">
+              <Paragraph className="text-accent-color">Total Reviews</Paragraph>
+              <Heading size="sm">323</Heading>
+            </div>
+            <div className="hidden md:inline-block">
+              <PopupToggle />
+            </div>
           </div>
         </div>
         <div className="md:flex items-center gap-4 mt-6 md:mt-0">
@@ -41,7 +48,8 @@ const Testimonials = () => {
       <div className="flex items-center md:items-start justify-center md:justify-between">
         <ReviewCard />
       </div>
-      <div className="md:hidden">
+      <div className="md:hidden flex items-center flex-col gap-4 ">
+        <PopupToggle />
         <LeftRightButton />
       </div>
     </div>

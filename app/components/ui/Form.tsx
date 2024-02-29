@@ -10,6 +10,7 @@ const Form = () => {
     <form className="flex flex-col gap-2 w-full">
       <label htmlFor="firstName">First Name</label>
       <input
+        required
         type="text"
         id="firstName"
         placeholder="First name"
@@ -17,6 +18,7 @@ const Form = () => {
       />
       <label htmlFor="lastName">Last Name</label>
       <input
+        required
         type="text"
         id="lastName"
         placeholder="Last Name"
@@ -24,6 +26,7 @@ const Form = () => {
       />
       <label htmlFor="email">E-Mail</label>
       <input
+        required
         type="email"
         id="email"
         placeholder="Email Address"
@@ -31,6 +34,7 @@ const Form = () => {
       />
       <label htmlFor="phoneNumber">Phone Number</label>
       <input
+        required
         type="tel"
         id="phoneNumber"
         placeholder="Phone Number"

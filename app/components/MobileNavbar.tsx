@@ -4,15 +4,20 @@ import { MenuIcon, X } from "lucide-react";
 import Link from "next/link";
 import { useState } from "react";
 import Button from "./ui/Button";
+import { usePathname, useRouter } from "next/navigation";
 
 const MobileNavbar = () => {
   const [menuState, setMenuState] = useState(false);
+
+  const pathname = usePathname();
+  const router = useRouter();
   const links = [
     ["/", "Home"],
     ["/about", "About Me"],
     ["/portfolio", "Portfolio"],
     ["/services", "Services"],
   ];
+  console.log(pathname);
   return (
     <div className="relative  ">
       <div className=" w-full h-24 border-b-2 border-border-primary px-6 ">
@@ -48,16 +53,25 @@ const MobileNavbar = () => {
                 <Link
                   href={link[0]}
                   key={index}
-                  className="text-lg uppercase transition border-b-2 border-r-2 text-center py-1 border-border-primary"
+                  className="text-lg uppercase transition border-b-2 border-r-2  py-1 border-border-primary flex items-center gap-3 "
                 >
+                  <div
+                    className={`rounded-full h-2 w-2 bg-accent-color  ${
+                      pathname === link[0] ? "inline-block" : "hidden"
+                    }`}
+                  ></div>
                   {link[1]}
                 </Link>
               );
             })}
           </div>
           <div className="">
-            <Button variant="outline" size="xl">
-              <Link href="/contact">Contact Us</Link>
+            <Button
+              variant="outline"
+              size="xl"
+              onClick={() => router.push("/contact")}
+            >
+              Contact Us
             </Button>
           </div>
         </div>
