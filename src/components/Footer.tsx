@@ -1,13 +1,13 @@
 import Link from "next/link";
-import Hero from "../ui/Hero";
-import ListRender from "../ui/ListRender";
-import Paragraph from "../ui/Paragraph";
-import SocialIcons from "../ui/SocialIcons";
-import Ticker from "../Ticker";
-import Heading from "../ui/Heading";
+import Hero from "./ui/Hero";
+import ListRender from "./ui/ListRender";
+import Paragraph from "./ui/Paragraph";
+import SocialIcons from "./ui/SocialIcons";
+import Ticker from "./Ticker";
+import Heading from "./ui/Heading";
 import { ArrowUpRightIcon } from "lucide-react";
-import ThemeToggle from "../ThemeToggle";
-import { Button } from "../ui/button";
+import ThemeToggle from "./ThemeToggle";
+import { Button } from "./ui/button";
 
 
 const Footer = () => {

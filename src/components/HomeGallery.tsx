@@ -54,7 +54,7 @@ const HomeGallery = () => {
               src="/gallery/image3.jpeg"
               alt="Im"
               fill
-              className="object-cover object-center size-full translate-y-4"
+              className="object-cover object-center size-full"
             />
           </div>
           <div className="flex-[2] relative border-4  border-background rounded-xl overflow-hidden  ">

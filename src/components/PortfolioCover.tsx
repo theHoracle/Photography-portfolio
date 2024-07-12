@@ -36,7 +36,6 @@ const PortfolioCover = (props: Props) => {
           </Link>
         </div>
       </div>
-      <LeftRightButton />
     </div>
   );
 };

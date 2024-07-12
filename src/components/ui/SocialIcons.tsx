@@ -13,17 +13,17 @@ const SocialIcons = (props: Props) => {
       className={`border-2 border-muted bg-background flex items-center justify-between gap-1.5 rounded-full p-1 md:p-2 max-w-48 md:max-w-52 transition-all`}
     >
       <div
-        className={`border-2 border-secondary bg-primary dark:bg-background hover:bg-muted-foreground dark:hover:bg-muted-foreground scale-90 md:scale-100  rounded-full ${smallIcon}`}
+        className={`border-2 border-secondary bg-primary dark:bg-background hover:bg-accent dark:hover:bg-accent scale-90 md:scale-100  rounded-full ${smallIcon}`}
       >
-        <SocialIcon bgColor="transparent" url="https://www.facebook.com" />
+        <SocialIcon bgColor="transparent" className="size-2" url="https://www.facebook.com" />
       </div>
       <div
-        className={`border-2 border-secondary  bg-primary dark:bg-background hover:bg-muted-foreground dark:hover:bg-muted-foreground rounded-full scale-90 md:scale-100 ${smallIcon}`}
+        className={`border-2 border-secondary  bg-primary dark:bg-background hover:bg-accent dark:hover:bg-accent rounded-full scale-90 md:scale-100 ${smallIcon}`}
       >
         <SocialIcon bgColor="transparent" url="https://www.x.com" />
       </div>
       <div
-        className={`border-2 bg-primary border-secondary dark:bg-background hover:bg-muted-foreground dark:hover:bg-muted-foreground rounded-full scale-90 md:scale-100 ${smallIcon}`}
+        className={`border-2 bg-primary border-secondary dark:bg-background hover:bg-accent dark:hover:bg-accent rounded-full scale-90 md:scale-100 ${smallIcon}`}
       >
         <SocialIcon bgColor="transparent" url="https://www.instagram.com" />
       </div>

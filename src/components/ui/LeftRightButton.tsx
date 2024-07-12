@@ -1,29 +1,40 @@
-import { ChevronLeft, ChevronRight } from "lucide-react";
+"use client"
 
-type Props = {
-  onClickLeftButton?: () => void;
-  onClickRightButton?: () => void;
-};
-const LeftRightButton = (props: Props) => {
-  const { onClickLeftButton, onClickRightButton } = props;
+import { MouseEvent, MouseEventHandler, ReactNode, useEffect, useState } from "react";
+import { ChevronLeft, ChevronRight } from "lucide-react";
+import { cn } from "@/lib/utils";
+
+
+interface LeftRightButtonProps {
+  onClickLeftButton: MouseEventHandler<HTMLButtonElement>
+  onClickRightButton: MouseEventHandler<HTMLButtonElement>
+  slideConfig: {
+    isBegining: boolean;
+    isEnd: boolean;
+}
+}
+const LeftRightButton = (props: LeftRightButtonProps) => {
+  const { onClickLeftButton, onClickRightButton, slideConfig } = props ;
   return (
     <div className="border-2 bg-background-color border-border-primary rounded-full mx-auto flex  max-w-32 items-center justify-between p-1.5 gap-1.5">
-      <div
+      <button
         onClick={onClickLeftButton}
-        role="button"
         aria-label="left-button"
-        className="border border-border-secondary rounded-full bg-border-primary p-2 hover:bg-border-secondary"
+        className={cn("border border-accent/50 bg-accent rounded-full aspect-square p-2.5",{ 
+          "bg-background": slideConfig?.isBegining
+        })}
       >
-        <ChevronLeft height={30} width={30} />
-      </div>
-      <div
+        <ChevronLeft className="size-8 aspect-square" />
+      </button>
+      <button
         onClick={onClickRightButton}
-        role="button"
         aria-label="right-button"
-        className="border border-border-secondary rounded-full bg-border-primary p-2 hover:bg-border-secondary"
+        className={cn("border border-accent/50 bg-accent rounded-full aspect-square p-2.5", {
+          "bg-background": slideConfig?.isEnd
+        })}
       >
-        <ChevronRight height={30} width={30} />
-      </div>
+        <ChevronRight className="size-8" />
+      </button>
     </div>
   );
 };
