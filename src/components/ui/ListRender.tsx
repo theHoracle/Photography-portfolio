@@ -15,12 +15,12 @@ const ListRender = () => {
             key={index}
             className="uppercase flex flex-col items-start flex-auto py-4 w-1/2 md:w-fit gap-1 pr-4"
           >
-            <h5 className="text-border-secondary  font-semibold">{links[0]}</h5>
+            <h5 className="text-muted-foreground mb-2  font-semibold">{links[0]}</h5>
             {links[1].map((link, index) => {
               return (
                 <li
                   key={index}
-                  className="border-b-2 py-0.5 border-primary text-muted-foreground hover:text-slate-300 hover:dark:text-white"
+                  className="border-b py-0.5 border-accent text-secondary dark:text-stone-300 hover:text-stone-300 hover:dark:text-white"
                 >
                   <Link href={link}>{link}</Link>
                 </li>

@@ -24,11 +24,6 @@ const TitledLink = (props: Props) => {
         </Heading>
       </div>
       <div className="md:flex items-center justify- gap-4">
-        {movable ? (
-          <span className="hidden md:inline-block">
-            <LeftRightButton />
-          </span>
-        ) : null}
         {toGO ? (
           <Button variant="outline" size="lg">
             <Link

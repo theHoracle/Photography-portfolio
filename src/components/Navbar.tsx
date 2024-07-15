@@ -1,7 +1,7 @@
 //Using screen size would render mobile nav or desktop nav,
 
-import DesktopNavbar from "../DesktopNavbar";
-import MobileNavbar from "../MobileNavbar";
+import DesktopNavbar from "./DesktopNavbar";
+import MobileNavbar from "./MobileNavbar";
 
 const Navbar = () => {
   // add styles based on active page

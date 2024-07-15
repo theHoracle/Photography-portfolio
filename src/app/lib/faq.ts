@@ -5,4 +5,4 @@ const faqs = [
   ],
   ["How do you use cameras", "By pressing the shutter button"],
 ];
-export default faqs;
+export {faqs};

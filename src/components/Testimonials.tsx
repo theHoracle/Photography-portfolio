@@ -1,3 +1,4 @@
+"use client"
 import { ArrowRight } from "lucide-react";
 import LeftRightButton from "./ui/LeftRightButton";
 import ReviewCard from "./ui/ReviewCard";
@@ -6,8 +7,58 @@ import Paragraph from "./ui/Paragraph";
 import Heading from "./ui/Heading";
 import { AddReviewDialog } from "./AddReviewDialog";
 import { Button } from "./ui/button";
+import { ReactNode, useEffect, useState } from "react";
+import {Swiper, SwiperSlide} from "swiper/react"
+import type SwiperType from "swiper"
+import 'swiper/css';
+import { Review } from "@prisma/client";
+
+export const fetchReviews = async ( ) => {
+  const res = await fetch(`${process.env.NEXT_PUBLIC_SERVER_URL}/api/reviews`)
+  if(!res.ok) {
+    throw new Error("FETCH REVIEWS FAILED")
+  }
+  return res.json()
+}
 
 const Testimonials = () => {
+  const [slides, setSlides] = useState<ReactNode[]>([]);
+  const [swiper, setSwiper] = useState<null | SwiperType>(null)
+  const [activeIndex, setActiveIndex] = useState(0)
+  const [slideConfig, setSlideConfig] = useState({
+      isBegining: true,
+      isEnd: activeIndex === (slides.length ?? 0) - 1
+  })
+
+  useEffect(() => {
+      swiper?.on("slideChange", ({activeIndex}) => {
+          setActiveIndex(activeIndex)
+          setSlideConfig({
+              isBegining: activeIndex === 0,
+              isEnd: activeIndex === (slides?.length ?? 0) - 1
+          })
+      })
+  }, [swiper, slides])
+
+  useEffect(() => {
+    const getReview = async () => {
+      const data = await fetchReviews()
+      const reviews: Review[] | undefined = data.review
+
+      const testimonials = reviews?.map((review) => (
+        <ReviewCard
+        key={review.id}
+        {...review} />
+      ))
+      if(testimonials) {
+        setSlides(testimonials)
+      }
+    }
+    getReview()
+  }, [])
+
+
+  
   return (
     <div>
       <div className="flex flex-col md:flex-row md:items-end md:justify-between  py-8  items-start border-b-2 mb-4 border-color">
@@ -29,11 +80,20 @@ const Testimonials = () => {
           </div>
         </div>
         <div className="md:flex items-center gap-4 mt-6 md:mt-0">
-          <span className="hidden md:inline-block">
-            <LeftRightButton />
-          </span>
+          <div className="hidden md:inline-block">
+          <LeftRightButton onClickLeftButton={(e) => {
+                e.preventDefault()
+                swiper?.slidePrev()
+            }}
+            onClickRightButton={(e) => {
+                e.preventDefault()
+                swiper?.slideNext()
+            }}
+            slideConfig={slideConfig}
+             />
+          </div>
 
-          <Button variant="outline" size="lg">
+          <Button variant="outlineTitle" size="lg">
             <Link
               href="/reviews"
               className="flex items-center justify-between capitalize"
@@ -44,12 +104,25 @@ const Testimonials = () => {
           </Button>
         </div>
       </div>
-      <div className="flex items-center md:items-start justify-center md:justify-between">
-        <ReviewCard />
-      </div>
+      <Swiper className="flex items-center md:items-start justify-center md:justify-between">
+        {slides.map((slide, index) => {
+          return <SwiperSlide key={index}>
+            {slide}
+          </SwiperSlide>
+        })}
+      </Swiper>
       <div className="md:hidden flex items-center flex-col gap-4 ">
         <AddReviewDialog />
-        <LeftRightButton />
+        <LeftRightButton onClickLeftButton={(e) => {
+                e.preventDefault()
+                swiper?.slidePrev()
+            }}
+            onClickRightButton={(e) => {
+                e.preventDefault()
+                swiper?.slideNext()
+            }}
+            slideConfig={slideConfig}
+             />
       </div>
     </div>
   );
