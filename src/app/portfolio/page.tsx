@@ -1,4 +1,3 @@
-
 import Paragraph from "../../components/ui/Paragraph";
 import Ticker from "../../components/Ticker";
 import FAQ from "../../components/FAQ";
@@ -9,20 +8,28 @@ import { Services, Work } from "@prisma/client";
 import PortfolioSlides from "@/components/PortfolioSlides";
 
 const getServices = async () => {
-  const res = await fetch(`${process.env.NEXT_PUBLIC_SERVER_URL}/api/services`)
-  if(!res.ok) {
-    throw new Error("FETCH SERVICES FAILED!")
+  const res = await fetch(`${process.env.NEXT_PUBLIC_SERVER_URL}/api/services`);
+  if (!res.ok) {
+    throw new Error("FETCH SERVICES FAILED!");
   }
-  return res.json()
-}
+  return res.json();
+};
 
 export default async function Portfolio() {
-  const data = await getServices()
-  const services: (Services & {works: Work[]})[] | undefined = data.services
-  console.log("I don logg you: ",services)
+  let services: (Services & { works: Work[] })[] | undefined;
+
+  try {
+    const data = await getServices();
+    services = data.services;
+    console.log("I don logg you: ", services);
+  } catch (error) {
+    console.error("Error fetching services: ", error);
+    services = [];
+  }
+
   return (
     <MaxWidthWrapper>
-      <div className="my-10 ">
+      <div className="my-10">
         <PageIntro
           page="Portfolio"
           head="Visual Poetry in Pixels"
@@ -33,9 +40,15 @@ export default async function Portfolio() {
           <Ticker />
         </div>
         <div>
-          {services?.map(service => {
-            console.log("Service here: ", service)
-            return <PortfolioSlides key={service.id} slides={service.works} title={service.title}/>
+          {services?.map((service) => {
+            console.log("Service here: ", service);
+            return (
+              <PortfolioSlides
+                key={service.id}
+                slides={service.works}
+                title={service.title}
+              />
+            );
           })}
         </div>
         <FAQ />
