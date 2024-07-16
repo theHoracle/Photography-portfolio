@@ -14,7 +14,7 @@ import 'swiper/css';
 import { Review } from "@prisma/client";
 
 export const fetchReviews = async ( ) => {
-  const res = await fetch("/api/reviews")
+  const res = await fetch(`${process.env.NEXT_PUBLIC_SERVER_URL}/api/reviews`)
   if(!res.ok) {
     throw new Error("FETCH REVIEWS FAILED")
   }

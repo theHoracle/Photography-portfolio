@@ -9,7 +9,7 @@ import { Services, Work } from "@prisma/client";
 import PortfolioSlides from "@/components/PortfolioSlides";
 
 const getServices = async () => {
-  const res = await fetch("/api/services")
+  const res = await fetch(`${process.env.NEXT_PUBLIC_SERVER_URL}/api/services`)
   if(!res.ok) {
     throw new Error("FETCH SERVICES FAILED!")
   }
