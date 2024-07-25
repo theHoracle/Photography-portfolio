@@ -17,10 +17,10 @@ model Services {
   id  String @id  @default(cuid())
   slug  String  @unique
   title String
-  Works Works[]
+  works Work[]
 }
 
-model Works {
+model Work {
   id  String @id  @default(cuid())
   slug  String
   title String

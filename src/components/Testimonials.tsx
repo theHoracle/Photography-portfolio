@@ -72,7 +72,7 @@ const Testimonials = () => {
           <div className="md:flex md:items-end md:justify-between">
             <div className="">
               <Paragraph className="text-accent-color">Total Reviews</Paragraph>
-              <Heading size="sm">323</Heading>
+              <Heading size="sm">{slides.length}</Heading>
             </div>
             <div className="hidden md:inline-block">
               <AddReviewDialog />
@@ -104,7 +104,23 @@ const Testimonials = () => {
           </Button>
         </div>
       </div>
-      <Swiper className="flex items-center md:items-start justify-center md:justify-between">
+      <Swiper 
+      onSwiper={(swiper) => setSwiper(swiper)}
+      spaceBetween={20}
+      slidesPerView={1}
+      breakpoints={{
+        400: {
+          slidesPerView: 1
+        },
+        640: {
+          slidesPerView: 2
+        },
+        1024: {
+          slidesPerView: 3
+        }
+      }}
+      className="size-full"
+      >
         {slides.map((slide, index) => {
           return <SwiperSlide key={index}>
             {slide}

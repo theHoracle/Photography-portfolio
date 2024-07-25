@@ -1,20 +1,35 @@
-import Image from "next/image";
-
-import Navbar from "../../components/Navbar";
 import Paragraph from "../../components/ui/Paragraph";
-import Heading from "../../components/ui/Heading";
 import Ticker from "../../components/Ticker";
-import PortfolioCover from "../../components/PortfolioCover";
 import FAQ from "../../components/FAQ";
 import Testimonials from "../../components/Testimonials";
-import Footer from "../../components/Footer";
 import PageIntro from "../../components/PageIntro";
 import MaxWidthWrapper from "@/components/MaxWidthWrapper";
+import { Services, Work } from "@prisma/client";
+import PortfolioSlides from "@/components/PortfolioSlides";
 
-export default function Portfolio() {
+export const getServices = async () => {
+  const res = await fetch(`${process.env.NEXT_PUBLIC_SERVER_URL}/api/services-and-works`);
+  if (!res.ok) {
+    throw new Error("FETCH SERVICES FAILED!");
+  }
+  return res.json();
+};
+
+export default async function Portfolio() {
+  let services: (Services & { works: Work[] })[] | undefined;
+
+  try {
+    const data = await getServices();
+    services = data.services;
+    console.log("I don logg you: ", services);
+  } catch (error) {
+    console.error("Error fetching services: ", error);
+    services = [];
+  }
+
   return (
     <MaxWidthWrapper>
-      <div className="my-10 ">
+      <div className="my-10">
         <PageIntro
           page="Portfolio"
           head="Visual Poetry in Pixels"
@@ -25,12 +40,16 @@ export default function Portfolio() {
           <Ticker />
         </div>
         <div>
-          <PortfolioCover
-            category="portraits photography"
-            title="faces of resilience"
-            date="Feburary 2024"
-            img="/img/fashion-model-in-fur.jpeg"
-          />
+          {services?.map((service) => {
+            console.log("Service here: ", service);
+            return (
+              <PortfolioSlides
+                key={service.id}
+                slides={service.works}
+                title={service.title}
+              />
+            );
+          })}
         </div>
         <FAQ />
         <Testimonials />

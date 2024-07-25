@@ -14,11 +14,11 @@ import LeftRightButton from "./ui/LeftRightButton";
 import Link from "next/link";
 
 interface ServiceSliderProps {
-    slides: ReactNode[];
+    slides: ReactNode[] | (() => ReactNode)[];
     section: string
     sectionTitle: string
     href: string
-    slidesPerView?: number
+    slidesPerView: number
 }
 const SectionSlide = ({slides,href,section,sectionTitle, slidesPerView}: ServiceSliderProps) => {
     const [swiper, setSwiper] = useState<null | SwiperType>(null)
@@ -71,9 +71,20 @@ const SectionSlide = ({slides,href,section,sectionTitle, slidesPerView}: Service
     </div>
     <Swiper
     onSwiper={(swiper) => setSwiper(swiper)}
-    spaceBetween="100vw"
-    slidesPerView={slidesPerView ?? 1}
-    className="h-full w-full flex items-center justify-between"
+    spaceBetween={20}
+    slidesPerView={1}
+    breakpoints={{
+      640: {
+        slidesPerView: 1
+      },
+      768: {
+        slidesPerView: slidesPerView < 2 ? 1 : slidesPerView - 1
+      },
+      1024: {
+        slidesPerView: slidesPerView
+      }
+    }}
+    className="h-full w-full"
     >
        {slides.map((slide, index) => {
         return <SwiperSlide key={index}

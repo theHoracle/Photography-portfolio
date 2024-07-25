@@ -1,9 +1,14 @@
-//Using screen size would render mobile nav or desktop nav,
-
+"use client"
+import { usePathname } from "next/navigation";
 import DesktopNavbar from "./DesktopNavbar";
 import MobileNavbar from "./MobileNavbar";
 
+
 const Navbar = () => {
+  const pathname = usePathname()
+  if(pathname.includes("admin")) {
+    return null
+  }
   // add styles based on active page
   return (
     <div className="w-screen mb-24 md:mb-0">

@@ -7,7 +7,7 @@ import { Review } from "@prisma/client";
 
 const ReviewCard = ({creator, message, rating}: Review) => {
   return (
-    <div className="max-w-96 border-2 border-accent bg-accent/50 rounded-2xl px-4 py-6 my-4 md:my-6 overflow-hidden relative">
+    <div className="max-w-96 mx-auto md:mx-0 border-2 border-accent bg-accent/50 rounded-2xl px-4 py-6 my-4 md:my-6 overflow-hidden relative">
       <div className="w-full h-full rounded-2xl rotate-[35deg] translate-x-48 -translate-y-1/3 bg-border-primary/45 absolute -z-20"></div>
       <div className="w-full h-full rounded-2xl rotate-[35deg] -translate-x-48 translate-y-1/3 bg-border-primary/45 absolute -z-20"></div>
       <div className="flex items-center justify-between">

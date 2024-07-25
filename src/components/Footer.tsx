@@ -1,5 +1,5 @@
+"use client"
 import Link from "next/link";
-import Hero from "./ui/Hero";
 import ListRender from "./ui/ListRender";
 import Paragraph from "./ui/Paragraph";
 import SocialIcons from "./ui/SocialIcons";
@@ -8,9 +8,14 @@ import Heading from "./ui/Heading";
 import { ArrowUpRightIcon } from "lucide-react";
 import ThemeToggle from "./ThemeToggle";
 import { Button } from "./ui/button";
+import { usePathname } from "next/navigation";
 
 
 const Footer = () => {
+  const pathname = usePathname()
+  if(pathname.includes("admin")) {
+    return null
+  }
   return (
     <footer className="mt-8">
       <h1 className="text-7xl text-border-primary font-bold text-right mt-80">

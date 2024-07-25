@@ -1,12 +1,12 @@
 import prisma from "@/utils/prisma"
 import { NextResponse } from "next/server";
 
-// get all prev works
+// get all  services
 export const GET = async () => {
     try {
-        const works = await prisma.work.findMany();
-        console.log("Works: ", works)
-        return NextResponse.json({works}, {status: 200})
+        const services = await prisma.services.findMany();
+        console.log("service: ", services)
+        return NextResponse.json({services}, {status: 200})
     } catch (error) {
         console.log(error)
         NextResponse.json({message: "AN ERROR OCCURRED!"}, {status: 500})
