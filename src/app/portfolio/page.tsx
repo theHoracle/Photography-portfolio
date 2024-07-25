@@ -7,8 +7,8 @@ import MaxWidthWrapper from "@/components/MaxWidthWrapper";
 import { Services, Work } from "@prisma/client";
 import PortfolioSlides from "@/components/PortfolioSlides";
 
-const getServices = async () => {
-  const res = await fetch(`${process.env.NEXT_PUBLIC_SERVER_URL}/api/services`);
+export const getServices = async () => {
+  const res = await fetch(`${process.env.NEXT_PUBLIC_SERVER_URL}/api/services-and-works`);
   if (!res.ok) {
     throw new Error("FETCH SERVICES FAILED!");
   }
