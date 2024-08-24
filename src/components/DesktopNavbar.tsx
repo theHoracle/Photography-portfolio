@@ -19,7 +19,6 @@ const DesktopNavbar = () => {
       <div className="-mt-[2px]">
         <ul className=" capitalize flex items-center mt-6 text-sm lg:text-base">
           {navLinks.map((link) => {
-            console.log(link.href, pathname)
            return (
             <li
               key={link.href}
