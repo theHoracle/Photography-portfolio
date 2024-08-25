@@ -19,10 +19,13 @@ const ProjectPage = ({params}: ProjectPageProps) => {
         {isSuccess &&
             <section>
             <MaxWidthWrapper>
+                <div className="flex flex-col">
+
                 <h1 className="text-3xl font-bold">{project?.title}</h1>
                 <p>{project?.description}</p>
                 <div>
                    <ThumbsGallery images={project.imgs} /> 
+                </div>
                 </div>
             </MaxWidthWrapper>
         </section>

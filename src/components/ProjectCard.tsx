@@ -3,7 +3,7 @@ import { Project } from "@prisma/client"
 import Image from "next/image"
 import Link  from "next/link"
 
-const WorkCard = ({imgs, title, createdAt, slug}: Project) => {
+const ProjectCard = ({imgs, title, createdAt, slug}: Project) => {
   const date = createdAt as unknown as string
     return <div className="max-w-[500px] mx-auto md:mx-0 flex flex-col gap-2 w-full">
       <div className="relative overflow-hidden rounded-xl aspect-square">
@@ -27,4 +27,4 @@ const WorkCard = ({imgs, title, createdAt, slug}: Project) => {
       </div>
     </div>
   }
-export default WorkCard
+export default ProjectCard;

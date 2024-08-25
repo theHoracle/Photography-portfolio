@@ -2,11 +2,10 @@
 
 import SectionSlide from "./SectionSlide";
 import { ReactNode, useEffect, useState } from "react";
-import WorkCard from "./WorkCard";
 import MaxWidthWrapper from "./MaxWidthWrapper";
-import { useAddProject } from "@/hooks/add-project";
 import { useGetProjects } from "@/hooks/get-projects";
 import { Project } from "@prisma/client";
+import ProjectCard from "./ProjectCard";
 
 
 
@@ -19,7 +18,7 @@ const PortfolioTab = () => {
     const getPortfolio = () => {
       if(isSuccess) {
         const slidesArray = portfolio?.map((work) => (
-          <WorkCard
+          <ProjectCard
           key={work.id}
           {...work}  />
         ))

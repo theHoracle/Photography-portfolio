@@ -23,7 +23,7 @@ import { uploadImagesToFirebase } from "@/lib/upload-image"
 
 
 interface CreateProjectProps {
-    services: Services[] | undefined
+    services: Services[]
 }
 const CreateProject = ({services}: CreateProjectProps) => {
     const [projectDetails, setProjetDetails] = useState({

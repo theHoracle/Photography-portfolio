@@ -7,7 +7,7 @@ import { useEffect, useState } from "react";
 import Heading from "./ui/Heading";
 import LeftRightButton from "./ui/LeftRightButton";
 import { Project } from "@prisma/client";
-import WorkCard from "./WorkCard";
+import ProjectCard from "./ProjectCard";
 
 
 interface PortfolioSlidesProps {
@@ -85,7 +85,7 @@ const PortfolioSlides = ({ slides, title }: PortfolioSlidesProps) => {
       >
         {slides.map((slide, index) => (
           <SwiperSlide key={index} className="my-10">
-            <WorkCard {...slide} />
+            <ProjectCard {...slide} />
           </SwiperSlide>
         ))}
       </Swiper>

@@ -17,7 +17,7 @@ const AdminNav = ({
   }) => {
     const navItems = [
         {title: "Dashboard", link: "admin", icon: LayoutDashboard},
-        {title: "New project", link: "admin/add-project", icon: BriefcaseBusiness},
+        {title: "New project", link: "admin/new-project", icon: BriefcaseBusiness},
         {title: "Reviews", link: "admin/reviews", icon: Stars},
     ]
 

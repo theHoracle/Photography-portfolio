@@ -11,7 +11,6 @@ import { getServicesAndProjects } from "@/hooks/get-services";
 
 export default async function Portfolio() {
   const data = await getServicesAndProjects()
-  console.log("prortfolio", data)
   const services = data?.services
   return (
   <div className="">
