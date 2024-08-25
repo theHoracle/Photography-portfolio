@@ -3,7 +3,8 @@ import Paragraph from "./ui/Paragraph";
 import { ArrowRight } from "lucide-react";
 import Heading from "./ui/Heading";
 import LeftRightButton from "./ui/LeftRightButton";
-import { Button } from "./ui/button";
+import { Button, buttonVariants } from "./ui/button";
+import { cn } from "@/app/lib/utils";
 
 type Props = {
   title: string;
@@ -25,15 +26,14 @@ const TitledLink = (props: Props) => {
       </div>
       <div className="md:flex items-center justify- gap-4">
         {toGO ? (
-          <Button variant="outline" size="lg">
             <Link
               href={toGO}
-              className="flex items-center justify-between capitalize"
+              // className="flex items-center justify-between capitalize"
+              className={cn(buttonVariants({variant: "outlineTitle", size: "lg"}), "flex items-center justify-between capitalize")}
             >
               {!!!buttonText ? "Know more" : buttonText}{" "}
               <ArrowRight width={25} height={20} />
             </Link>
-          </Button>
         ) : null}
       </div>
     </div>

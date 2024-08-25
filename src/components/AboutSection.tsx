@@ -6,10 +6,13 @@ import SocialIcons from "./ui/SocialIcons";
 import Heading from "./ui/Heading";
 import { Button, buttonVariants } from "./ui/button";
 import Link from "next/link";
+import MaxWidthWrapper from "./MaxWidthWrapper";
 
 const AboutCard = () => {
   return (
     <div>
+      <MaxWidthWrapper>
+
       <div className="">
         <TitledLink title="I am Photography" desc="About" toGO="google.com" />
       </div>
@@ -20,7 +23,7 @@ const AboutCard = () => {
             alt="Fashion model in fur"
             fill
             className="object-cover object-center size-full "
-          />
+            />
         </div>
         <div className=" border divide-y border-accent p-4 md:p-8 rounded-2xl w-full ">
           <div className="mb-8">
@@ -61,8 +64,8 @@ const AboutCard = () => {
               </Link>
               <Button
               variant='outline'
-                className="w-full py-6 text-xs lg:text-lg lg:tracking-tighter lg:w-max "
-                >
+              className="w-full py-6 text-xs lg:text-lg lg:tracking-tighter lg:w-max "
+              >
                 Download CV
               </Button>
             </div>
@@ -70,6 +73,7 @@ const AboutCard = () => {
         </div>
       </div>
       </div>
+    </MaxWidthWrapper>
     </div>
   );
 };

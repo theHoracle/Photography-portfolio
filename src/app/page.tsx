@@ -12,13 +12,11 @@ export default async function Home() {
  return (
    <div className="flex flex-col">
       <Hero />
-        <MaxWidthWrapper>
         <AboutSection />
         <Services />
         <PortfolioTab />
         <FAQ />
         <Testimonials />
-    </MaxWidthWrapper>
       </div>
   );
 }

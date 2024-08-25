@@ -1,5 +1,4 @@
 "use client"
-
 import {
   Card,
   CardContent,
@@ -16,9 +15,11 @@ import { ChevronLeft, Upload } from "lucide-react"
 import { Button, buttonVariants } from "@/components/ui/button"
 import { Badge } from "@/components/ui/badge"
 import Link from "next/link"
-import { cn } from "@/lib/utils"
+import { cn, slugify } from "@/lib/utils"
 import React, { useState } from "react"
 import { Services } from "@prisma/client"
+import { useAddProject } from "@/hooks/add-project"
+import { uploadImagesToFirebase } from "@/lib/upload-image"
 
 
 interface CreateProjectProps {
@@ -27,13 +28,18 @@ interface CreateProjectProps {
 const CreateProject = ({services}: CreateProjectProps) => {
     const [projectDetails, setProjetDetails] = useState({
         title: "",
-        slug: "",
         description: "",
         serviceSlug: "",
-        thumbnail: "",
-        imgs: [] as string[],
-
     })
+    const [images, setImages] = useState<File[]>([]);
+    const [imagePreviews, setImagePreviews] = useState<string[]>([
+      "/image-placeholder.svg",
+      "/image-placeholder.svg",
+      "/image-placeholder.svg",
+    ]);
+
+
+    const {mutate: addProject, isPending} = useAddProject()
 
     const handleInputChange = (e: React.ChangeEvent<HTMLInputElement>) => {
         const { name, value } = e.target;
@@ -43,6 +49,47 @@ const CreateProject = ({services}: CreateProjectProps) => {
         }));
       };
     
+    const discardProjectDetails = () => {
+        setProjetDetails({
+            title: "",
+            
+            description: "",
+            serviceSlug: "",
+        }),
+        setImages([]),
+        setImagePreviews([
+          "/image-placeholder.svg",
+          "/image-placeholder.svg",
+          "/image-placeholder.svg",
+        ])
+      }
+
+      const addNewProject = async () => {
+        if(Object.values(projectDetails).every((value) => value && value.length !== 0) ) {
+         const uploadUrls = await uploadImagesToFirebase(images, projectDetails.title)
+          addProject({
+            ...projectDetails,
+            slug: slugify(projectDetails.title),
+            imgs: uploadUrls
+          })
+       } else {
+        console.log("all fields are required")
+       }
+      }
+
+      const handleImageChange = (index: number) => (event: React.ChangeEvent<HTMLInputElement>) => {
+        const file = event.target.files?.[0];
+        if (file) {
+            const updatedImages = [...images];
+            const updatedPreviews = [...imagePreviews];
+            updatedImages[index] = file;
+            updatedPreviews[index] = URL.createObjectURL(file);
+            setImages(updatedImages);
+            setImagePreviews(updatedPreviews);
+        }
+    }
+    
+
       console.log(projectDetails)
   return <div className="mx-auto grid max-w-[59rem] flex-1 auto-rows-max gap-4">
     <div className="flex items-center gap-4">
@@ -57,18 +104,13 @@ const CreateProject = ({services}: CreateProjectProps) => {
         New
       </Badge>
       <div className="hidden items-center gap-2 md:ml-auto md:flex">
-        <Button variant="outline" onClick={() => setProjetDetails({
-          description: "",
-          slug: "",
-          serviceSlug: "",
-          thumbnail: "",
-          title: "",
-          imgs: [],
-        })} 
+        <Button variant="outline" onClick={discardProjectDetails} 
         size="sm">
           Discard
         </Button>
-        <Button size="sm">Save Project</Button>
+        <Button 
+        onClick={addNewProject}
+        size="sm">Save Project</Button>
       </div>
     </div>
     <div className="grid gap-4 md:grid-cols-[1fr_250px] lg:grid-cols-3 lg:gap-8">
@@ -171,7 +213,8 @@ const CreateProject = ({services}: CreateProjectProps) => {
                   </SelectTrigger>
                   <SelectContent>
                     <SelectItem value="published">Active</SelectItem>
-                    {/* <SelectItem value="draft">Draft</SelectItem>
+                    <SelectItem value="draft">Draft</SelectItem>
+                    {/*
                     <SelectItem value="archived">Archived</SelectItem> */}
                   </SelectContent>
                 </Select>
@@ -188,48 +231,78 @@ const CreateProject = ({services}: CreateProjectProps) => {
             </CardDescription>
           </CardHeader>
           <CardContent>
-            <div className="grid gap-2">
-              <Image
-                alt="Project image"
-                className="aspect-square w-full rounded-md object-cover"
-                height="300"
-                src="/image-placeholder.svg"
-                width="300"
-              />
-              <div className="grid grid-cols-3 gap-2">
-                <button>
-                  <Image
-                    alt="Project image"
-                    className="aspect-square w-full rounded-md object-cover"
-                    height="84"
-                    src="/image-placeholder.svg"
-                    width="84"
-                  />
-                </button>
-                <button>
-                  <Image
-                    alt="Project image"
-                    className="aspect-square w-full rounded-md object-cover"
-                    height="84"
-                    src="/image-placeholder.svg"
-                    width="84"
-                  />
-                </button>
-                <button className="flex aspect-square w-full items-center justify-center rounded-md border border-dashed">
-                  <Upload className="h-4 w-4 text-muted-foreground" />
-                  <span className="sr-only">Upload</span>
-                </button>
-              </div>
-            </div>
-          </CardContent>
+                <div className="grid gap-2">
+                  <label className="cursor-pointer">
+                    <input
+                      type="file"
+                      className="hidden"
+                      onChange={handleImageChange(0)}
+                      accept="image/*"
+                    />
+                    <Image
+                      alt="Project image"
+                      className="aspect-square w-full rounded-md object-cover"
+                      height="300"
+                      src={imagePreviews[0]}
+                      width="300"
+                    />
+                  </label>
+                  <div className="grid grid-cols-3 gap-2">
+                    <label className="cursor-pointer">
+                      <input
+                        type="file"
+                        className="hidden"
+                        onChange={handleImageChange(1)}
+                        accept="image/*"
+                      />
+                      <Image
+                        alt="Project image"
+                        className="aspect-square w-full rounded-md object-cover"
+                        height="84"
+                        src={imagePreviews[1]}
+                        width="84"
+                      />
+                    </label>
+                    <label className="cursor-pointer">
+                      <input
+                        type="file"
+                        className="hidden"
+                        onChange={handleImageChange(2)}
+                        accept="image/*"
+                      />
+                      <Image
+                        alt="Project image"
+                        className="aspect-square w-full rounded-md object-cover"
+                        height="84"
+                        src={imagePreviews[2]}
+                        width="84"
+                      />
+                    </label>
+                    <label className="flex aspect-square w-full items-center justify-center rounded-md border border-dashed cursor-pointer">
+                      <input
+                        type="file"
+                        className="hidden"
+                        onChange={handleImageChange(2)}
+                        accept="image/*"
+                      />
+                      <Upload className="h-4 w-4 text-muted-foreground" />
+                      <span className="sr-only">Upload</span>
+                    </label>
+                  </div>
+                </div>
+              </CardContent>
         </Card>
       </div>
     </div>
     <div className="flex items-center justify-center gap-2 md:hidden">
-      <Button variant="outline" size="sm">
+      <Button variant="outline" 
+      onClick={discardProjectDetails}
+      size="sm">
         Discard
       </Button>
-      <Button size="sm">Save Project</Button>
+      <Button 
+      onClick={addNewProject}
+      size="sm">Save Project</Button>
     </div>
   </div>
 }

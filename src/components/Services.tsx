@@ -7,14 +7,13 @@ import { Button } from "./ui/button";
 import { services } from "@/app/lib/ServiceHighlights";
 import SectionSlide from "./SectionSlide";
 import { useEffect, useState } from "react";
-import { useSpring, animated } from "react-spring";
-import { motion, AnimatePresence } from "framer-motion";
-
+import MaxWidthWrapper from "./MaxWidthWrapper";
 
 
 const Service = () => {
   const serviceArr = [RetouchingSection, EventSection , PotraitsSection]
   return (
+      <MaxWidthWrapper>
     <div className="my-8 flex flex-col gap-6">
       <SectionSlide href="/services"
       section="services"
@@ -22,6 +21,7 @@ const Service = () => {
       slidesPerView={1}
       slides={serviceArr} />
     </div>
+      </MaxWidthWrapper>
   );
 };
 

@@ -19,8 +19,8 @@ const Footer = () => {
   }
   return (
     <footer className="mt-8">
-      <h1 className="text-7xl text-border-primary font-bold text-right mt-80">
-        PHOTOG
+      <h1 className="text-[200px] leading-tight text-border-primary font-bold text-right mt-40">
+        LATUNJI
       </h1>
       <Ticker />
       <div className="md:flex items-center ">

@@ -4,6 +4,7 @@ import "./globals.css";
 import Navbar from "@/components/Navbar";
 import Footer from "@/components/Footer";
 import { ThemeProvider } from "@/providers/ThemeProviders";
+import Providers from "@/providers/ClientProviders";
 
 const inter = Inter({ subsets: ["latin"] });
 
@@ -20,12 +21,7 @@ export default function RootLayout({
   return (
     <html lang="en">
       <body className={inter.className}>
-        <ThemeProvider
-        attribute="class"
-        defaultTheme="system"
-        enableSystem
-        disableTransitionOnChange
-        >
+       <Providers>
         <main className="flex flex-col w-screen overflow-hidden bg-background">
         <Navbar />
         <div className="sm:mt-20">
@@ -33,7 +29,7 @@ export default function RootLayout({
         </div>
         <Footer />
         </main>
-      </ThemeProvider>
+       </Providers>
         </body>
     </html>
   );

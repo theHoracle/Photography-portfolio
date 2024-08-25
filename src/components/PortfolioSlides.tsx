@@ -6,12 +6,12 @@ import 'swiper/css';
 import { useEffect, useState } from "react";
 import Heading from "./ui/Heading";
 import LeftRightButton from "./ui/LeftRightButton";
-import { Work } from "@prisma/client";
+import { Project } from "@prisma/client";
 import WorkCard from "./WorkCard";
 
 
 interface PortfolioSlidesProps {
-  slides: Work[];
+  slides: Project[];
   title: string;
 }
 

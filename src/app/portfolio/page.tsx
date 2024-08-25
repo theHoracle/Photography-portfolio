@@ -5,12 +5,14 @@ import Testimonials from "../../components/Testimonials";
 import MaxWidthWrapper from "@/components/MaxWidthWrapper";
 import Image from "next/image";
 import ServicesList from "@/components/ServicesList";
-import { getServices } from "@/hooks/get-services";
+import { getServicesAndProjects } from "@/hooks/get-services";
 
 
 
 export default async function Portfolio() {
-  const data = await getServices()
+  const data = await getServicesAndProjects()
+  console.log("prortfolio", data)
+  const services = data?.services
   return (
   <div className="">
     <section className="h-[calc(100lvh-80px)]   w-full">
@@ -34,7 +36,7 @@ export default async function Portfolio() {
           <Ticker />
         </div>
         {/* portfolio slides */}
-        <ServicesList initialData={data} />
+        <ServicesList initialData={services} />
       </div>
     </MaxWidthWrapper>
       <Testimonials />

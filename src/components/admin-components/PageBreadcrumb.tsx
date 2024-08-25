@@ -20,7 +20,7 @@ const PageBreadcrumb = () => {
 
           return (
             <>
-            <BreadcrumbItem key={accumulatedPath}>
+            <BreadcrumbItem key={`${accumulatedPath}-${index}`}>
               <BreadcrumbLink asChild>
                 <Link href={accumulatedPath} className="capitalize">
                   {label}

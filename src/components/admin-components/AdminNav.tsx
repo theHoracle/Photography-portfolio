@@ -21,13 +21,7 @@ const AdminNav = ({
         {title: "Reviews", link: "admin/reviews", icon: Stars},
     ]
 
-    const isAuth = true
-    if(!isAuth) {
-      return <div className="flex min-h-screen w-full flex-col bg-muted/40" >
-        {children}
-      </div>
-    }
-    return <div className="flex min-h-screen w-full flex-col bg-muted/40">
+    return <div className="flex min-h-screen w-full flex-col bg-muted/40 sm:-mt-20">
     <aside className="fixed inset-y-0 left-0 z-10 hidden w-14 flex-col border-r bg-background sm:flex">
     <nav className="flex flex-col items-center gap-4 px-2 sm:py-5">
       <Link

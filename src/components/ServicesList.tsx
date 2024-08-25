@@ -1,22 +1,20 @@
-
 import PortfolioSlides from "./PortfolioSlides";
-import { Services, Work } from "@prisma/client";
+import { Project, Services } from "@prisma/client";
 
 interface ServicesListProps {
-    initialData: any;
+    initialData: (Services & { projects: Project[] })[] | undefined;
 }
 
 const ServicesList = ({initialData}: ServicesListProps) => {
     
-    const services:(Services & { works: Work[] })[] | undefined = initialData
+    const services = initialData
     console.log("Error")
     return <div>
-    {services?.map((service) => {
-      console.log("Service here: ", service);
+    { services?.map((service) => {
       return (
         <PortfolioSlides
           key={service.id}
-          slides={service.works}
+          slides={service.projects}
           title={service.title}
         />
       );

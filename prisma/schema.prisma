@@ -18,15 +18,14 @@ model Services {
   id  String @id  @default(cuid())
   slug  String  @unique
   title String
-  works Work[]
+  projects Project[]
 }
 
-model Work {
+model Project {
   id  String @id  @default(cuid())
   slug  String  @unique
   description String
   title String
-  thumbnail String
   imgs String[]
   serviceSlug String
   service Services  @relation(fields: [serviceSlug], references: [slug])
