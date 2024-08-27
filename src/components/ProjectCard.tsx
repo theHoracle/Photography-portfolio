@@ -17,7 +17,7 @@ const ProjectCard = ({imgs, title, createdAt, slug}: Project) => {
       <div className="flex items-center justify-between gap-2 text-xs lg:text-sm w-full">
         <div className="flex-1">
           <h5 className="truncate capitalize">{title}</h5>
-          <p className="text-[10px] lg:text-xs">{formatDate(date)}</p>
+          {/* <p className="text-[10px] lg:text-xs">{formatDate(date)}</p> */}
         </div>
         <div className="flex justify-end uppercase">
           <Link href={`/project/${slug}`}  className="flex max-w-fit gap-1 items-end text-xs justify-end border-b-2 border-accent hover:border-background" >

@@ -1,5 +1,3 @@
-import { useQuery } from "@tanstack/react-query"
-import api from "@/utils/api";
 import prisma from "@/utils/prisma";
 
 export const getServicesAndProjects = async () => {

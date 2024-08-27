@@ -7,7 +7,7 @@ import React from "react";
 
 const PageBreadcrumb = () => {
   const pathname = usePathname();
-  const pathArr = pathname.split("/").filter(Boolean);
+  const pathArr = typeof pathname === "string" ? pathname.split("/").filter(Boolean) : [];
 
   let accumulatedPath = "";
 
