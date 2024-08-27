@@ -8,10 +8,8 @@ import ServicesList from "@/components/ServicesList";
 import { getServicesAndProjects } from "@/hooks/get-services";
 
 
-
-export default async function Portfolio() {
-  const data = await getServicesAndProjects()
-  const services = data?.services
+export default function Portfolio() {
+  
   return (
   <div className="">
     <section className="h-[calc(100lvh-80px)]   w-full">
@@ -35,10 +33,10 @@ export default async function Portfolio() {
           <Ticker />
         </div>
         {/* portfolio slides */}
-        <ServicesList initialData={services} />
+       
+       <ServicesList />
       </div>
     </MaxWidthWrapper>
-      <Testimonials />
       <FAQ />
     </div>
   );

@@ -7,8 +7,10 @@ import { ArrowUpRight } from "lucide-react";
 import Link from "next/link";
 import SocialIcons from "@/components/ui/SocialIcons";
 import Image from "next/image";
+import { getReviews } from "@/hooks/get-reviews";
 
-export default function Contact() {
+export default async function Contact() {
+  
   return (
     <MaxWidthWrapper>
       <section className="my-8">
@@ -78,7 +80,6 @@ export default function Contact() {
           </div>
         </div>
       </section>
-      <Testimonials />
     </MaxWidthWrapper>
   );
 }

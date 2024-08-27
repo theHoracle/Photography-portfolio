@@ -11,7 +11,7 @@ import { Label } from "@/components/ui/label"
 import { Textarea } from "@/components/ui/textarea"
 import { Select, SelectContent, SelectItem, SelectTrigger, SelectValue, } from "@/components/ui/select"
 import Image from "next/image"
-import { ChevronLeft, Upload } from "lucide-react"
+import { ChevronLeft, Loader2, Upload } from "lucide-react"
 import { Button, buttonVariants } from "@/components/ui/button"
 import { Badge } from "@/components/ui/badge"
 import Link from "next/link"
@@ -31,6 +31,7 @@ const CreateProject = ({services}: CreateProjectProps) => {
         description: "",
         serviceSlug: "",
     })
+    const [isLoading, setIsLoading] = useState(false)
     const [images, setImages] = useState<File[]>([]);
     const [imagePreviews, setImagePreviews] = useState<string[]>([
       "/image-placeholder.svg",
@@ -65,17 +66,27 @@ const CreateProject = ({services}: CreateProjectProps) => {
       }
 
       const addNewProject = async () => {
-        if(Object.values(projectDetails).every((value) => value && value.length !== 0) ) {
-         const uploadUrls = await uploadImagesToFirebase(images, projectDetails.title)
-          addProject({
+        setIsLoading(true)
+        try {
+          if(Object.values(projectDetails).every((value) => value && value.length !== 0) ) {
+          // upload images
+            const uploadUrls = await uploadImagesToFirebase(images, projectDetails.title)
+          // add project
+            addProject({
             ...projectDetails,
             slug: slugify(projectDetails.title),
             imgs: uploadUrls
           })
+          console.log("New PRoject", uploadUrls, projectDetails)
        } else {
-        console.log("all fields are required")
+        throw new Error("MISSING REQUIRED FIELDS")
        }
+      } catch (error){
+        console.log("Error: ", error)
+      } finally {
+        setIsLoading(false)
       }
+    }
 
       const handleImageChange = (index: number) => (event: React.ChangeEvent<HTMLInputElement>) => {
         const file = event.target.files?.[0];
@@ -88,9 +99,8 @@ const CreateProject = ({services}: CreateProjectProps) => {
             setImagePreviews(updatedPreviews);
         }
     }
+    console.log(images)
     
-
-      console.log(projectDetails)
   return <div className="mx-auto grid max-w-[59rem] flex-1 auto-rows-max gap-4">
     <div className="flex items-center gap-4">
       <Link href="/admin"  className={cn(buttonVariants({variant: "outline", size: "icon"}), "h-7 w-7")}>
@@ -110,7 +120,10 @@ const CreateProject = ({services}: CreateProjectProps) => {
         </Button>
         <Button 
         onClick={addNewProject}
-        size="sm">Save Project</Button>
+        disabled={isLoading || isPending}
+        size="sm">Save Project
+          <Loader2 className="size-4 ml-1 animate-spin" />
+        </Button>
       </div>
     </div>
     <div className="grid gap-4 md:grid-cols-[1fr_250px] lg:grid-cols-3 lg:gap-8">
@@ -301,8 +314,11 @@ const CreateProject = ({services}: CreateProjectProps) => {
         Discard
       </Button>
       <Button 
-      onClick={addNewProject}
-      size="sm">Save Project</Button>
+        onClick={addNewProject}
+        disabled={isLoading || isPending}
+        size="sm">Save Project
+          <Loader2 className="size-4 ml-1 animate-spin" />
+        </Button>
     </div>
   </div>
 }

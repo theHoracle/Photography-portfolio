@@ -1,4 +1,5 @@
 import api from "@/utils/api"
+import prisma from "@/utils/prisma"
 import { useMutation } from "@tanstack/react-query"
 
 
@@ -11,7 +12,16 @@ type NewProject = {
 }
 
 const addProject = async (addProject: NewProject) => {
-    const res = await api.post("/projects", addProject)
+    try {
+        const newProject = await prisma.project.create({
+            data: {
+                ...addProject
+            }
+        })
+        return newProject;    
+    } catch (error) {
+        console.log("Could not add new project")
+    }
 }
 
 export const useAddProject = () => {

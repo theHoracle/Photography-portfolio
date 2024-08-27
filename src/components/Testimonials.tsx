@@ -14,50 +14,30 @@ import 'swiper/css';
 import { Review } from "@prisma/client";
 import MaxWidthWrapper from "./MaxWidthWrapper";
 
-export const fetchReviews = async ( ) => {
-  const res = await fetch(`${process.env.NEXT_PUBLIC_SERVER_URL}/api/reviews`)
-  if(!res.ok) {
-    throw new Error("FETCH REVIEWS FAILED")
-  }
-  return res.json()
+interface TestimonialsProps {
+  reviews: Review[]
 }
 
-const Testimonials = () => {
+const Testimonials = ({reviews}: TestimonialsProps) => {
+
   const [slides, setSlides] = useState<ReactNode[]>([]);
   const [swiper, setSwiper] = useState<null | SwiperType>(null)
   const [activeIndex, setActiveIndex] = useState(0)
   const [slideConfig, setSlideConfig] = useState({
       isBegining: true,
-      isEnd: activeIndex === (slides.length ?? 0) - 1
+      isEnd: activeIndex === (reviews?.length ?? 0) - 1
   })
 
+  
   useEffect(() => {
       swiper?.on("slideChange", ({activeIndex}) => {
           setActiveIndex(activeIndex)
           setSlideConfig({
               isBegining: activeIndex === 0,
-              isEnd: activeIndex === (slides?.length ?? 0) - 1
+              isEnd: activeIndex === (reviews?.length ?? 0) - 1
           })
       })
-  }, [swiper, slides])
-
-  useEffect(() => {
-    const getReview = async () => {
-      const data = await fetchReviews()
-      const reviews: Review[] | undefined = data.review
-
-      const testimonials = reviews?.map((review) => (
-        <ReviewCard
-        key={review.id}
-        {...review} />
-      ))
-      if(testimonials) {
-        setSlides(testimonials)
-      }
-    }
-    getReview()
-  }, [])
-
+  }, [swiper, reviews])
 
   
   return (
@@ -73,7 +53,7 @@ const Testimonials = () => {
           <div className="md:flex md:items-end md:justify-between">
             <div className="">
               <Paragraph className="text-accent-color">Total Reviews</Paragraph>
-              <Heading size="sm">{slides.length}</Heading>
+              <Heading size="sm">{reviews?.length}</Heading>
             </div>
             <div className="hidden md:inline-block">
               <AddReviewDialog />
@@ -122,9 +102,9 @@ const Testimonials = () => {
       }}
       className="size-full"
       >
-        {slides.map((slide, index) => {
-          return <SwiperSlide key={index}>
-            {slide}
+         {reviews?.map((review, index) => {
+          return <SwiperSlide key={review.id}>
+            <ReviewCard  {...review} />
           </SwiperSlide>
         })}
       </Swiper>

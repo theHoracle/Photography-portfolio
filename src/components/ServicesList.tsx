@@ -1,14 +1,10 @@
+import { getServicesAndProjects } from "@/hooks/get-services";
 import PortfolioSlides from "./PortfolioSlides";
-import { Project, Services } from "@prisma/client";
 
-interface ServicesListProps {
-    initialData: (Services & { projects: Project[] })[] | undefined;
-}
 
-const ServicesList = ({initialData}: ServicesListProps) => {
-    
-    const services = initialData
-    console.log("Error")
+const ServicesList = async () => {
+  const services = await getServicesAndProjects()
+  
     return <div>
     { services?.map((service) => {
       return (

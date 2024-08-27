@@ -4,8 +4,10 @@ import TitledLink from "@/components/TitledLink";
 import Image from "next/image";
 import Heading from "@/components/ui/Heading";
 import MaxWidthWrapper from "@/components/MaxWidthWrapper";
+import { getReviews } from "@/hooks/get-reviews";
 
-export default function About() {
+export default async function About() {
+  
   const about = [
     ["15+", "Years in Business"],
     ["500+", "Happy Clients"],
@@ -14,6 +16,7 @@ export default function About() {
     ["10,100+", "Social Media followers"],
     ["90%", "Client Retention rate"],
   ];
+
   return (
     <div className="relative w-full flex flex-col">
       <section>
@@ -124,7 +127,7 @@ export default function About() {
           </div>
       </MaxWidthWrapper>
       </section>
-      <Testimonials />
+    
     </div>
   );
 }
