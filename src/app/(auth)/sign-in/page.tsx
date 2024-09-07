@@ -1,5 +1,5 @@
+"use client"
 import Link from "next/link"
-
 import { Button } from "@/components/ui/button"
 import {
   Card,
@@ -10,9 +10,34 @@ import {
 } from "@/components/ui/card"
 import { Input } from "@/components/ui/input"
 import { Label } from "@/components/ui/label"
+import { useState } from "react"
+import { signIn } from "@/firebase/auth/SignIn"
+import { useRouter } from "next/navigation"
+import { toast } from "sonner"
+import { Loader2 } from "lucide-react"
 
 export default function LoginForm() {
-  return (
+  const [email, setEmail] = useState("")
+  const [password, setPassword] = useState("")
+  const [isLoading, setIsLoading] = useState(false)
+  const router = useRouter()
+
+  const handleSignIn = ( ) => {
+    try {
+      setIsLoading(true)
+      if(email && password) {
+        signIn(email, password, router)
+      } else {
+        toast.error("Please fill in all fields")
+      }
+    } catch (error) {
+      console.log(error)
+    } finally {
+      setIsLoading(false)
+    }
+  }
+
+  return ( <div className="flex h-screen items-center justify-center">
     <Card className="m-auto max-w-sm">
       <CardHeader>
         <CardTitle className="text-2xl">Login</CardTitle>
@@ -28,6 +53,8 @@ export default function LoginForm() {
               id="email"
               type="email"
               placeholder="m@example.com"
+              value={email}
+              onChange={(e) => setEmail(e.target.value)}
               required
             />
           </div>
@@ -38,16 +65,25 @@ export default function LoginForm() {
                 Forgot your password?
               </Link>
             </div>
-            <Input id="password" type="password" required />
+            <Input 
+            id="password" 
+            type="password" 
+            value={password}
+            onChange={(e) => setPassword(e.target.value)}
+            required />
           </div>
-          <Button type="submit" className="w-full">
-            Login
+          <Button type="submit"
+          className="w-full flex items-center"
+          disabled={isLoading}
+          onClick={handleSignIn}>
+            Login {isLoading && <Loader2 className="size-4 animate-spin ml-1" />}
           </Button>
           <Button variant="outline" className="w-full">
-            Login with Google
+            *Login with Google
           </Button>
         </div>
       </CardContent>
     </Card>
+    </div>
   )
 }

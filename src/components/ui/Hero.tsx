@@ -15,16 +15,16 @@ const Hero = () => {
   const images = [
     "/gallery/image1.jpeg",
     "/gallery/image1b.jpeg",
-    "/gallery/image1b.jpeg",
-    "/gallery/image1b.jpeg",
+    "/gallery/imageZ.jpeg",
     "/gallery/image2.jpeg",
     "/gallery/image3.jpeg",
     "/gallery/image3b.jpeg",
   ]
   return (
     <div className="relative h-[calc(100lvh-80px)] w-screen mx-auto">
+      <div className="absolute inset-0 z-10">
       <MaxWidthWrapper>     
-      <div className="py-4 w-full flex flex-col items-start md:flex-row md:items-center md:justify-between md:py-14">
+      <div className="py-4 w-full flex flex-col items-start md:flex-row md:items-center md:justify-between md:py-14 text-gray-100">
       <div>
         <Paragraph className="uppercase">Stunning Photography By</Paragraph>
         <Heading size="lg">theLatunji</Heading>
@@ -42,7 +42,8 @@ const Hero = () => {
       </div>
       </div>
       </MaxWidthWrapper>
-      <div className="absolute inset-0 -z-20">
+      </div>
+      <div className="absolute inset-0">
       <Swiper 
       modules={[Autoplay, Pagination, Navigation]}
       autoplay={{

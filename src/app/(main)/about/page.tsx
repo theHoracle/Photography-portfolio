@@ -1,10 +1,8 @@
-import Testimonials from "../../components/Testimonials";
 import Paragraph from "@/components/ui/Paragraph";
 import TitledLink from "@/components/TitledLink";
 import Image from "next/image";
 import Heading from "@/components/ui/Heading";
 import MaxWidthWrapper from "@/components/MaxWidthWrapper";
-import { getReviews } from "@/hooks/get-reviews";
 
 export default async function About() {
   

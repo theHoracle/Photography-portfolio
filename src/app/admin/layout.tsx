@@ -14,8 +14,9 @@ export default function RootLayout({
 }>) {
   return (
         <AdminNav>
-       
+            <div className="mt-4 md:mt-8">
             {children}
+            </div>
         </AdminNav>
   );
 }

@@ -1,9 +1,9 @@
-import Paragraph from "../../components/ui/Paragraph";
-import Ticker from "../../components/Ticker";
-import FAQ from "../../components/FAQ";
 import MaxWidthWrapper from "@/components/MaxWidthWrapper";
 import Image from "next/image";
 import ServicesList from "@/components/ServicesList";
+import Paragraph from "@/components/ui/Paragraph";
+import Ticker from "@/components/Ticker";
+import FAQ from "@/components/FAQ";
 
 
 export default function Portfolio() {

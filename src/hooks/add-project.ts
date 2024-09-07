@@ -12,16 +12,8 @@ type NewProject = {
 }
 
 const addProject = async (addProject: NewProject) => {
-    try {
-        const newProject = await prisma.project.create({
-            data: {
-                ...addProject
-            }
-        })
-        return newProject;    
-    } catch (error) {
-        console.log("Could not add new project")
-    }
+    const res = await api.post("/add-project", addProject)
+    return res.data
 }
 
 export const useAddProject = () => {

@@ -1,4 +1,3 @@
-import Testimonials from "../../components/Testimonials";
 import MaxWidthWrapper from "@/components/MaxWidthWrapper";
 import Heading from "@/components/ui/Heading";
 import Paragraph from "@/components/ui/Paragraph";
@@ -7,7 +6,7 @@ import { ArrowUpRight } from "lucide-react";
 import Link from "next/link";
 import SocialIcons from "@/components/ui/SocialIcons";
 import Image from "next/image";
-import { getReviews } from "@/hooks/get-reviews";
+
 
 export default async function Contact() {
   

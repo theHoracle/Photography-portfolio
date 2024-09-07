@@ -40,7 +40,7 @@ const CreateProject = ({services}: CreateProjectProps) => {
     ]);
 
 
-    const {mutate: addProject, isPending} = useAddProject()
+    const {mutate: addProject} = useAddProject()
 
     const handleInputChange = (e: React.ChangeEvent<HTMLInputElement>) => {
         const { name, value } = e.target;
@@ -120,9 +120,9 @@ const CreateProject = ({services}: CreateProjectProps) => {
         </Button>
         <Button 
         onClick={addNewProject}
-        disabled={isLoading || isPending}
+        disabled={isLoading}
         size="sm">Save Project
-          <Loader2 className="size-4 ml-1 animate-spin" />
+          {isLoading && <Loader2 className="size-4 ml-1 animate-spin" />}
         </Button>
       </div>
     </div>
@@ -240,7 +240,7 @@ const CreateProject = ({services}: CreateProjectProps) => {
           <CardHeader>
             <CardTitle>Project Images</CardTitle>
             <CardDescription>
-              Upload images for this project. Max of 4 images
+              Upload images for this project. {images.length} image(s) added.
             </CardDescription>
           </CardHeader>
           <CardContent>
@@ -295,7 +295,7 @@ const CreateProject = ({services}: CreateProjectProps) => {
                       <input
                         type="file"
                         className="hidden"
-                        onChange={handleImageChange(2)}
+                        onChange={(event) => setImages((prevImages) => [...prevImages, event.target.files?.[0]!])}
                         accept="image/*"
                       />
                       <Upload className="h-4 w-4 text-muted-foreground" />
@@ -315,9 +315,9 @@ const CreateProject = ({services}: CreateProjectProps) => {
       </Button>
       <Button 
         onClick={addNewProject}
-        disabled={isLoading || isPending}
+        disabled={isLoading}
         size="sm">Save Project
-          <Loader2 className="size-4 ml-1 animate-spin" />
+          {isLoading && <Loader2 className="size-4 ml-1 animate-spin" />}
         </Button>
     </div>
   </div>
