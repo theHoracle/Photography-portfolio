@@ -1,80 +1,63 @@
 "use client";
 
-import { Briefcase, Home, MenuIcon, Target, X } from "lucide-react";
+import { Briefcase, Camera, Home, Target, X } from "lucide-react";
 import Link from "next/link";
-import { useState, useCallback, useRef } from "react";
-import { usePathname, useRouter } from "next/navigation";
-
-import ThemeToggle from "./ThemeToggle";
-import { useOnClickOutside } from "../hooks/useOnClickOutside";
-import { PersonIcon } from "@radix-ui/react-icons";
-
-const links = [
-  ["/", "Home", Home],
-  ["/about", "About Me", PersonIcon],
-  ["/portfolio", "Portfolio", Briefcase],
-  ["/services", "Services", Target],
-] as const;
+import { usePathname } from "next/navigation";
+import { HamburgerMenuIcon, PersonIcon } from "@radix-ui/react-icons";
+import { Sheet, SheetContent, SheetTrigger } from "./ui/sheet";
+import { Button } from "./ui/button";
 
 const MobileNavbar = () => {
-  const [isMenuOpen, setIsMenuOpen] = useState(false);
+  const links = [
+    { href: "/", label: "Home", icon: Home },
+    { href: "/about", label: "About Me", icon: PersonIcon },
+    { href: "/portfolio", label: "Portfolio", icon: Briefcase },
+    { href: "/services", label: "Services", icon: Target },
+  ];
+
   const pathname = usePathname();
-  const router = useRouter();
-
-  const toggleMenu = useCallback(() => {
-    setIsMenuOpen((prev) => !prev);
-  }, []);
-
-  const mobileNavRef = useRef<HTMLDivElement | null>(null);
-  const themeToggleRef = useRef<HTMLDivElement | null>(null);
-  useOnClickOutside(mobileNavRef, () => setIsMenuOpen(false), themeToggleRef);
 
   return (
-    <div className="relative bg-blend-difference">
-      <div className="w-full h-20 border-b-2 border-border-primary px-2.5">
-        <div className="h-full -mt-[3px] border-x-2 border-border-primary flex justify-between items-end">
-          <div className="p-6">
-            <Link href="/">Not Our Logo</Link>
-          </div>
-          <div className="border-t-2 border-l-2 border-border-primary rounded-tl-3xl p-4 flex items-end justify-center">
-            <button className="transition-all" onClick={toggleMenu}>
-              {isMenuOpen ? (
-                <X className="size-6" />
-              ) : (
-                <MenuIcon className="size-6" />
-              )}
-            </button>
-          </div>
+    <header>
+      <div className="h-full -mt-[3px] border-x-2 border-b-2 border-accent flex justify-between items-end">
+        <div className="p-6">
+          <Link href="/">Not Our Logo</Link>
+        </div>
+        <div className="border-t-2 border-l-2 border-border-primary rounded-tl-3xl flex items-end p-1 pt-1.5 pl-1.5 justify-center">
+          <Sheet>
+            <SheetTrigger asChild>
+              <Button size="icon" variant="ghost" className="sm:hidden hover:bg-background">
+                <HamburgerMenuIcon className="h-7 w-7" />
+                <span className="sr-only">Toggle Menu</span>
+              </Button>
+            </SheetTrigger>
+            <SheetContent side="right" className="sm:max-w-xs">
+              <nav className="grid gap-6 text-lg font-medium">
+                <Link
+                  href="#"
+                  className="group flex h-10 w-10 shrink-0 items-center justify-center gap-2 rounded-full bg-primary text-lg font-semibold text-primary-foreground md:text-base"
+                >
+                  <Camera className="h-5 w-5 transition-all group-hover:scale-110" />
+                  <span className="sr-only">Latunji Photography</span>
+                </Link>
+                {links.map(({ href, label, icon: Icon }) => (
+                  <Link
+                    key={href}
+                    href={href}
+                    className={`flex items-center gap-4 px-2.5 text-muted-foreground hover:text-foreground ${
+                      pathname === href ? "text-foreground font-bold" : ""
+                    }`}
+                  >
+                    <Icon className="h-5 w-5" />
+                    {label}
+                  </Link>
+                ))}
+              </nav>
+            </SheetContent>
+          </Sheet>
         </div>
       </div>
-      {isMenuOpen && (
-        <div
-          ref={mobileNavRef}
-          className="absolute bg-background top-20 right-0 z-10 mobile-nav-h min-w-fit shadow-lg"
-        >
-          <div className=" flex flex-col p-8 h-full min-w-64 justify-between">
-            <nav className="flex flex-col h-full gap-4">
-              {links.map(([href, text, Icon], index) => (
-                <Link
-                  href={href}
-                  key={index}
-                  className="font-bold flex items-center justify-end text-right gap-2.5 py-3"
-                >
-                  {/* {pathname === href && (
-                    <div className="rounded-full h-2 w-2 bg-accent-color"></div>
-                  )} */}
-                  {text}
-                  <Icon />
-                </Link>
-              ))}
-            </nav>
-            <div ref={themeToggleRef} className="justify-end flex ">
-              <ThemeToggle  />
-            </div>
-          </div>
-        </div>
-      )}
-    </div>
+    </header>
   );
 };
 
