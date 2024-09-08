@@ -4,10 +4,11 @@ import ServicesList from "@/components/ServicesList";
 import Paragraph from "@/components/ui/Paragraph";
 import Ticker from "@/components/Ticker";
 import FAQ from "@/components/FAQ";
+import { getServicesAndProjects } from "@/hooks/get-services";
 
 
-export default function Portfolio() {
-  
+export default async function Portfolio() {
+  const services = await getServicesAndProjects();
   return (
   <div className="">
     <section className="h-[calc(100lvh-80px)]   w-full">
@@ -23,16 +24,13 @@ export default function Portfolio() {
         </MaxWidthWrapper>
     </section>
     <MaxWidthWrapper>
-
       <div className="my-10">
-        
         <div className="flex flex-col items-center my-8 gap-4 mb-16">
           <Paragraph variants="topic">Brands I have worked with</Paragraph>
           <Ticker />
         </div>
         {/* portfolio slides */}
-       
-       <ServicesList />
+       <ServicesList  services={services} />
       </div>
     </MaxWidthWrapper>
       <FAQ />

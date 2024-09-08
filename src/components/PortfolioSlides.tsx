@@ -44,7 +44,7 @@ const PortfolioSlides = ({ slides, title }: PortfolioSlidesProps) => {
 
   return (
     <div>
-      <div className="flex flex-col md:flex-row md:items-center md:justify-between py-8 items-start border-b-2 border-color">
+      <div className="flex flex-col md:flex-row md:items-center md:justify-between py-8 items-start border-b-2 border-accent">
         <div>
           <Heading size="sm" className="mb-4">
             {title}

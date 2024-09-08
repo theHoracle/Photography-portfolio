@@ -23,7 +23,7 @@ const DesktopNavbar = () => {
             <li
               key={link.href}
               className={`border-2 first-of-type:rounded-tl-lg last-of-type:rounded-tr-lg border-border-primary hover:bg-stone-200 dark:hover:bg-stone-800 py-4 px-6 ${
-                (pathname === link.href) ? "dark:bg-stone-800 bg-stone-200" : ""
+                (pathname === link.href || link.href !== '/' && pathname.includes(link.href)) ? "dark:bg-stone-800 bg-stone-200" : ""
               }`}
             >
               <Link href={link.href}>{link.label}</Link>

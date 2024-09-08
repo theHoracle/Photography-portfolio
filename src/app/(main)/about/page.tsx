@@ -36,7 +36,7 @@ export default async function About() {
               </Heading>
             </div>
             <div className="lg-about-box">
-            <ul className="flex flex-wrap lg:flex-nowrap  gap-2.5 w-full bg-background-color lg:py-4 overflow-x-scroll bg-background">
+            <ul className="flex flex-wrap lg:flex-nowrap  gap-2.5 w-full bg-background-color lg:py-4 overflow-x-scroll max-w-[1170px] bg-background">
               {about.map((info, index) => {
                 return (
                   <li

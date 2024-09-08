@@ -13,7 +13,7 @@ const FAQ = () => {
       <Accordion type="single" collapsible className="w-full flex flex-col md:flex-row gap-3 flex-wrap">
       {faqs.map((faq, index) => {
         return <AccordionItem value={`item-${index + 1}`} key={index}
-        className="flex-1"
+        className="flex-1 text-start"
         >
         <AccordionTrigger>{faq[0]}</AccordionTrigger>
         <AccordionContent>

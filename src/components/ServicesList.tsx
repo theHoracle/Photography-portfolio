@@ -1,11 +1,14 @@
 import { getServicesAndProjects } from "@/hooks/get-services";
 import PortfolioSlides from "./PortfolioSlides";
+import { Project, Services } from "@prisma/client";
 
-const ServicesList = async () => {
+interface ServicesListProps {
+  services: ({projects: Project[]} & Services)[]
+
+}
+
+const ServicesList = ({services}: ServicesListProps) => {
   try {
-    const services = await getServicesAndProjects();
-    console.log("Services fetched:", services); // Log the fetched data
-
     if (!services || !Array.isArray(services)) {
       console.error("Services is not an array:", services);
       return <div>Error: Unable to load services</div>;

@@ -8,6 +8,7 @@ import { getReviews } from "@/hooks/get-reviews";
 import Navbar from "@/components/Navbar";
 import Footer from "@/components/Footer";
 import PortfolioSlides from "@/components/PortfolioSlides";
+import MaxWidthWrapper from "@/components/MaxWidthWrapper";
 
 export default async function Home() {
   const projects = await getProjects();
@@ -20,7 +21,9 @@ export default async function Home() {
       <AboutSection />
       <Services />
       {/* Portfolio */}
+      <MaxWidthWrapper>
       <PortfolioSlides title="Explore my photography projects" slides={projects}/>
+      </MaxWidthWrapper>
       <FAQ /> 
       <Testimonials reviews={reviews} />
       <Footer />
