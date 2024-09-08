@@ -30,4 +30,4 @@ export default async function RootLayout({
   );
 }
 
-export const revalidate = "3600"; // fetches every one hour
+export const revalidate = 3600; // fetches every one hour
