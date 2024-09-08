@@ -72,12 +72,13 @@ const CreateProject = ({services}: CreateProjectProps) => {
           // upload images
             const uploadUrls = await uploadImagesToFirebase(images, projectDetails.title)
           // add project
-            addProject({
+          addProject({
             ...projectDetails,
             slug: slugify(projectDetails.title),
             imgs: uploadUrls
           })
           console.log("New PRoject", uploadUrls, projectDetails)
+          discardProjectDetails()
        } else {
         throw new Error("MISSING REQUIRED FIELDS")
        }

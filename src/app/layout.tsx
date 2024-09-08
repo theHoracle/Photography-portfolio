@@ -29,3 +29,5 @@ export default async function RootLayout({
     </html>
   );
 }
+
+export const revalidate = "3600"; // fetches every one hour

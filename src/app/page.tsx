@@ -7,6 +7,7 @@ import { getProjects } from "@/hooks/get-projects";
 import { getReviews } from "@/hooks/get-reviews";
 import Navbar from "@/components/Navbar";
 import Footer from "@/components/Footer";
+import PortfolioSlides from "@/components/PortfolioSlides";
 
 export default async function Home() {
   const projects = await getProjects();
@@ -18,6 +19,8 @@ export default async function Home() {
       <Hero />
       <AboutSection />
       <Services />
+      {/* Portfolio */}
+      <PortfolioSlides title="Explore my photography projects" slides={projects}/>
       <FAQ /> 
       <Testimonials reviews={reviews} />
       <Footer />
