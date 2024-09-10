@@ -10,6 +10,7 @@ import 'swiper/css';
 import 'swiper/css/pagination';
 import 'swiper/css/navigation';
 import MaxWidthWrapper from "../MaxWidthWrapper";
+import Link from "next/link";
 
 const Hero = () => {
   const images = [
@@ -33,9 +34,11 @@ const Hero = () => {
         <Heading size="sm">
           <span className="flex justify-start items-center gap-2 ">
             Let&apos;s
-            <Button>
-              <ArrowUpRightIcon />
-            </Button>
+            <Link href="/contact"  className="button-gradient  w-20">
+              <div className="fancy-button flex items-center justify-center">
+              <ArrowUpRightIcon className="relative z-10 hover:scale-110 transition-all" /> 
+              </div>
+            </Link>
           </span>
           work together
         </Heading>

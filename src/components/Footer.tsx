@@ -1,4 +1,3 @@
-"use client"
 import Link from "next/link";
 import ListRender from "./ui/ListRender";
 import Paragraph from "./ui/Paragraph";
@@ -13,10 +12,6 @@ import MaxWidthWrapper from "./MaxWidthWrapper";
 
 
 const Footer = () => {
-  const pathname = usePathname()
-  if(pathname.includes("admin")) {
-    return null
-  }
   return (
     <footer className="mt-8">
       <h1 className="text-[200px] leading-tight text-border-primary font-bold text-right mt-40">
@@ -31,9 +26,11 @@ const Footer = () => {
           <Heading size="sm">
             <span className="flex justify-start items-center gap-2">
               Let&apos;s
-              <Button>
-                <ArrowUpRightIcon />
-              </Button>
+              <Link href="/contact"  className="button-gradient  w-20">
+              <div className="fancy-button flex items-center justify-center">
+              <ArrowUpRightIcon className="relative z-10 hover:scale-110 transition-all" /> 
+              </div>
+            </Link>
             </span>
             work together
           </Heading>

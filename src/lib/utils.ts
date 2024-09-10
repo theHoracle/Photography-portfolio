@@ -7,12 +7,10 @@ export function cn(...inputs: ClassValue[]) {
 }
 
 
-export function formatDate(date: Date): string {
-  // Format the date into a specific string format
-  const formattedDate = format(date, 'yyyy-MM-dd HH:mm:ss');
-  return formattedDate;
+export function getMonthAndYear(dateString: Date): string {
+  const parsedDate = new Date(dateString);
+  return format(parsedDate, 'MMMM, yyyy');
 }
-  
 export function slugify(text: string): string {
   return text
     .toString()

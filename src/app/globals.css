@@ -141,3 +141,46 @@
   bottom: -40px;
   box-shadow: 20px -12px 0 hsl(var(--background));
 }
+
+
+@property --rotate {
+  syntax: "<angle>";
+  initial-value: 0deg;
+  inherits: false;
+}
+
+.button-gradient {
+  --blue: #055fcc;
+  --radius: 50px;
+  --rotate: 10deg;
+  padding: 20px 30px;
+  border-radius: var(--radius);
+  position: relative;
+  border: 0;
+  background: var(--blue);
+  overflow: hidden;
+  .fancy-button {
+    position: absolute;
+    inset: 0;
+    
+  }
+  .fancy-button::before {
+    content: "";
+    background: conic-gradient(from var(--rotate), transparent 0%, white 5%, transparent 10%);
+    position: absolute;
+    inset: 0;
+    animation: rotate 2s linear infinite;
+  }
+  .fancy-button::after {
+    content: "";
+    background: #0173ff;
+    position: absolute;
+    inset: 2px;
+    border-radius: calc(var(--radius) - 2px);
+  }
+}
+@keyframes rotate {
+  to {
+    --rotate: 360deg
+  }
+}
