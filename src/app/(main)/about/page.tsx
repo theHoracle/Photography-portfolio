@@ -80,45 +80,50 @@ export default async function About() {
               assumenda velit impedit corrupti praesentium
             </Paragraph>
           </div>
-          <div className="mt-12">
+          <div className="mt-12 flex flex-col gap-4">
+            <div>
             <TitledLink
               desc="Journey"
               title="TheHoracle's Journey - A timeline"
-            />
-            <div className="grid w-full grid-cols-1 md:grid-cols-2 gap-7">
+              />
+              </div>
+            <div className="grid w-full grid-cols-1 md:grid-cols-2 min-h-fit gap-4 md:gap-7 overflow-hidden ">
               {/* items */}
-            
-              <div className="border-2 w-full h-full min-h-[180px] bg-accent/30 border-border-primary rounded-2xl px-4 py-6 my-10 overflow-hidden relative">
-                <div className="w-full rounded-2xl rotate-[35deg] aspect-square bg-accent/50 absolute top-1/3 right-1/2" />
-                <div className="w-full rounded-2xl rotate-[35deg] aspect-square bg-accent/50 absolute -bottom-1/4 left-3/4 " />
-                <div className="absolute inset-0 flex flex-col items-start justify-center py-8 px-8 gap-4">
-                  <h2  className="mb-1 text-3xl">
-                    YEAR - 2024
-                  </h2>
-                  <Paragraph size="sm" className="text-gray-500">
-                    Lorem ipsum dolor, sit amet consectetur adipisicing elit.
-                    Doloremque laudantium sapiente nemo esse incidunt dolore hic
-                    ad, rem pariatur alias. Delectus incidunt cum unde?
-                  </Paragraph>
-                </div>
-            </div>
-              <div className="border-2 w-full h-full min-h-[180px] bg-accent/30 border-border-primary rounded-2xl px-4 py-6 my-10 overflow-hidden relative">
-                <div className="w-full rounded-2xl rotate-[35deg] aspect-square bg-accent/50 absolute top-1/3 right-1/2" />
-                <div className="w-full rounded-2xl rotate-[35deg] aspect-square bg-accent/50 absolute -bottom-1/4 left-3/4 " />
-                <div className="absolute inset-0 flex flex-col items-start justify-center py-8 px-8 gap-4">
-                  <h2  className="mb-1 text-3xl">
-                    YEAR - 2024
-                  </h2>
-                  <Paragraph size="sm" className="text-gray-500">
-                    Lorem ipsum dolor, sit amet consectetur adipisicing elit.
-                    Doloremque laudantium sapiente nemo esse incidunt dolore hic
-                    ad, rem pariatur alias. Delectus incidunt cum unde?
-                  </Paragraph>
-                </div>
-            </div>
-            
-              
-              
+            {/* one */}
+            <div className="relative w-full h-full min-h-[180px] bg-accent/30 text-gray-300 border-2 border-accent rounded-2xl px-6 sm:px-8 md:px-10 lg:px-12 overflow-hidden">
+  {/* Decorative Rotated Squares */}
+  <div className="absolute w-[200px] h-[200px] rounded-full rotate-[45deg] bg-accent/50 opacity-20 top-[-50px] right-[-50px]" />
+  <div className="absolute w-[250px] h-[250px] rounded-full rotate-[45deg] bg-accent/50 opacity-20 bottom-[-100px] left-[100px]" />
+
+  {/* Text Content */}
+  <div className="absolute inset-0 flex flex-col items-start justify-center px-6 sm:px-8 md:px-10 lg:px-12 gap-4">
+    <h2 className="text-3xl font-bold text-gray-100">YEAR - 2020</h2>
+    <p className="text-lg text-gray-400">
+      In 2020, Damien’s dedication and creativity earned her several prestigious
+      photography awards, solidifying her position as a visionary photographer.
+    </p>
+  </div>
+</div>
+
+          
+   {/* two */}
+  <div className="relative w-full h-full min-h-[180px] bg-accent/30 text-gray-300 border-2 border-accent rounded-2xl px-6 sm:px-8 md:px-10 lg:px-12 overflow-hidden">
+  {/* Decorative Rotated Squares */}
+  <div className="absolute w-[200px] h-[200px] rounded-full rotate-[45deg] bg-accent/50 opacity-20 top-[-50px] right-[-50px]" />
+  <div className="absolute w-[250px] h-[250px] rounded-full rotate-[45deg] bg-accent/50 opacity-20 bottom-[-100px] left-[100px]" />
+  {/* Text Content */}
+  <div className="absolute inset-0 flex flex-col items-start justify-center px-6 sm:px-8 md:px-10 lg:px-12 gap-4">
+    <h2 className="text-3xl font-bold text-gray-100">YEAR - 2020</h2>
+    <p className="text-lg text-gray-400">
+      In 2020, Damien’s dedication and creativity earned her several prestigious
+      photography awards, solidifying her position as a visionary photographer.
+    </p>
+  </div>
+</div>
+
+
+
+
             </div>
             
           </div>
