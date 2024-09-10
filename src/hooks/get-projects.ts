@@ -1,10 +1,14 @@
 import prisma from "@/utils/prisma"
-import { useQuery } from "@tanstack/react-query"
+
 
 
 export const getProjects = async () => {
     try {
-        const projects = await prisma.project.findMany();
+        const projects = await prisma.project.findMany({
+            orderBy: {
+                createdAt: "desc"
+            }
+        });
         return projects;
     } catch (error) {
         console.error("Failed to fetch projects:", error);
