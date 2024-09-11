@@ -12,7 +12,7 @@ const Plans = () => {
         <div key={index}>
           <div className="border-y border-accent">
             {/* desc */}
-            <div className="flex items-center gap-10 border-b pb-10 border-accent">
+            <div className="flex flex-col md:flex-row items-center gap-10 border-b pb-10 border-accent">
               <div className="flex-1 mt-6 flex flex-col gap-8 items-start">
               <Heading className="text-xl">{service.category}</Heading>
               <Paragraph className="text-sm text-accent-foreground/50">{service.description}</Paragraph>
@@ -29,10 +29,10 @@ const Plans = () => {
                   <li key={index}
                   className="py-14"
                   >
-                    <div className="flex items-center gap-10">
+                    <div className="flex flex-col md:flex-row  md:items-center gap-10">
                       <div className="flex-1 flex flex-col">
                         <p>{plan.type}</p>
-                        <div className="flex gap-4 items-center">
+                        <div className="flex gap-4 items-center justify-between md:justify-start">
                         <Heading>{plan.price}</Heading>
                         <Link href="/contact" className="uppercase text-xs border-b hover:border-transparent border-accent flex items-center gap-1 max-w-fit py-1 transition-all">Book a call <UpRightArrow className="size-4" /></Link>
                         </div>
