@@ -75,7 +75,7 @@ export function ProjectGallery({ images, titleSlug, desc, title }: ProjectGaller
         {images.map((image, index) => (
           <div
             key={index}
-            className="relative overflow-hidden rounded-lg cursor-pointer group"
+            className="relative overflow-hidden rounded-lg cursor-pointer aspect-[1.5/1] group"
             onClick={() => handleImageClick(image)}
           >
             <Image
@@ -84,7 +84,6 @@ export function ProjectGallery({ images, titleSlug, desc, title }: ProjectGaller
               width={300}
               height={200}
               className="w-full h-40 object-cover transition-all duration-300 group-hover:scale-105"
-              style={{ aspectRatio: "300/200", objectFit: "cover" }}
             />
             <div className="absolute inset-0 bg-black/50 flex items-center justify-center opacity-0 group-hover:opacity-100 transition-opacity duration-300">
               <ZoomInIcon className="w-8 h-8 text-white" />
@@ -94,15 +93,13 @@ export function ProjectGallery({ images, titleSlug, desc, title }: ProjectGaller
       </div>
       {selectedImage && (
         <Dialog open onOpenChange={handleClose}>
-          <DialogContent className="p-0 max-w-[90vw] max-h-[90vh] overflow-auto">
-            <div className="relative">
+          <DialogContent hideCloseButton className="p-0 max-w-[90vw] max-h-[90vh] overflow-auto">
+            <div className="relative size-full aspect-[4/3]">
               <Image
                 src={selectedImage}
                 alt={titleSlug}
-                width={800}
-                height={600}
-                className="w-full h-auto object-contain"
-                style={{ aspectRatio: "800/600", objectFit: "cover" }}
+                fill
+                className="w-full h-auto object-cover object-center"
               />
               <Button
                 variant="ghost"

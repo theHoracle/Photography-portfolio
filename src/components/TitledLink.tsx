@@ -4,7 +4,7 @@ import { ArrowRight } from "lucide-react";
 import Heading from "./ui/Heading";
 import LeftRightButton from "./ui/LeftRightButton";
 import { Button, buttonVariants } from "./ui/button";
-import { cn } from "@/app/lib/utils";
+import { cn } from "@/lib/utils";
 
 type Props = {
   title: string;

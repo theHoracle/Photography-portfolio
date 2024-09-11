@@ -4,7 +4,7 @@ import { ArrowUpRightIcon } from "lucide-react";
 import Paragraph from "./ui/Paragraph";
 import Heading from "./ui/Heading";
 import { Button } from "./ui/button";
-import { services } from "@/app/lib/ServiceHighlights";
+import { services } from "@/data/ServiceHighlights";
 import SectionSlide from "./SectionSlide";
 import { useEffect, useState } from "react";
 import MaxWidthWrapper from "./MaxWidthWrapper";

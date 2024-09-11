@@ -28,19 +28,19 @@ const DesktopNavbar = () => {
           <li className={cn("border-t-2 border-border-primary py-4 px-6 hover:bg-stone-200 hover:dark:bg-stone-800", {
             "dark:bg-stone-800 bg-stone-200": pathname === "/about"
           })}>
-            <Link href="/">About</Link>
+            <Link href="/about">About</Link>
           </li>
           
           <li className={cn("border-2 border-b-0 border-border-primary py-4 px-6 hover:bg-stone-200 hover:dark:bg-stone-800", {
-            "dark:bg-stone-800 bg-stone-200": pathname === "/portfolio"
+            "dark:bg-stone-800 bg-stone-200": pathname.includes("/portfolio")
           })}>
-            <Link href="/">Portfolio</Link>
+            <Link href="/portfolio">Portfolio</Link>
           </li>
 
           <li className={cn("border-2 border-l-0 border-b-0 border-border-primary rounded-tr-lg py-4 px-6 hover:bg-stone-200 hover:dark:bg-stone-800", {
             "dark:bg-stone-800 bg-stone-200": pathname === "/services"
           })}>
-            <Link href="/">Services</Link>
+            <Link href="/services">Services</Link>
           </li>
           {/* {navLinks.map((link) => {
            return (

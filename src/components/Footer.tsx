@@ -6,8 +6,6 @@ import Ticker from "./Ticker";
 import Heading from "./ui/Heading";
 import { ArrowUpRightIcon } from "lucide-react";
 import ThemeToggle from "./ThemeToggle";
-import { Button } from "./ui/button";
-import { usePathname } from "next/navigation";
 import MaxWidthWrapper from "./MaxWidthWrapper";
 
 
@@ -19,7 +17,7 @@ const Footer = () => {
       </h1>
       <Ticker />
       <div className="md:flex items-center ">
-        <div className="py-10 md:py-[72px] md:border-0  px-6 flex flex-col gap-4 border-x-2 border-border-primary ">
+        <div className="py-10 md:py-[72px] md:border-0  px-6 flex flex-col gap-4 border-x-2 border-accent ">
           <Paragraph variants="topic">
             A more meaningful home for Photography
           </Paragraph>
@@ -35,7 +33,7 @@ const Footer = () => {
             work together
           </Heading>
         </div>
-        <div className="px-10 md:flex-1 py-5 border-2 border-border-primary">
+        <div className="px-10 md:flex-1 py-5 border-2 md:border-t-0 border-accent">
           <ListRender />
         </div>
       </div>

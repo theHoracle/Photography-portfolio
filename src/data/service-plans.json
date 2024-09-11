@@ -1,0 +1,132 @@
+{
+  "services": [
+    {
+      "category": "Retouching Services",
+      "description": "Every image has a story, but sometimes the magic lies in the details. Our retouching services breathe new life into your photos, enhancing them to perfection without losing the essence of the moment. Whether it’s a subtle touch-up or a complete transformation, we take care to preserve the integrity of your image while making it shine in its best light. Let us bring out the beauty that’s already there, with a professional finish that makes every shot unforgettable.",
+      "image": "https://example.com/images/retouching-services.jpg",
+      "pricing": [
+        {
+          "type": "Basic Retouching",
+          "price": 50,
+          "features": [
+            "Enhance skin tone and texture",
+            "Basic color correction",
+            "Includes 10 professionally retouched images"
+          ],
+          "additional_images": "Additional images can be purchased at $5 each",
+          "custom_pricing": "Contact us for custom retouching needs"
+        },
+        {
+          "type": "Advanced Retouching",
+          "price": 100,
+          "features": [
+            "Advanced skin retouching and blemish removal",
+            "Detailed color correction and exposure adjustments",
+            "Includes 15 professionally retouched images"
+          ],
+          "additional_images": "Additional images can be purchased at $10 each",
+          "custom_pricing": "Contact us for specialized retouching needs"
+        }
+      ]
+    },
+    {
+      "category": "Events Coverage",
+      "description": "Every event is a milestone, and we believe in capturing the essence of every moment. Whether it’s a lively birthday bash or a corporate event that marks a significant achievement, our photography brings those moments back to life. We don’t just take pictures—we craft memories, ensuring that the energy, emotion, and atmosphere of your event are forever preserved in stunning images. Let us tell the story of your event in a way that allows you to relive the magic every time you look back.",
+      "image": "https://example.com/images/events-coverage.jpg",
+      "pricing": [
+        {
+          "type": "Birthday Events",
+          "price": 600,
+          "features": [
+            "Full event coverage",
+            "Includes 50 professionally edited images"
+          ],
+          "additional_images": "Additional images can be purchased at $15 each",
+          "custom_pricing": "Custom pricing available for unique event requirements"
+        },
+        {
+          "type": "Corporate Events",
+          "price": 1000,
+          "features": [
+            "Complete corporate event coverage",
+            "Includes 80 professionally edited images"
+          ],
+          "additional_images": "Additional images can be purchased at $20 each",
+          "custom_pricing": "Contact us for a customized quote"
+        }
+      ]
+    },
+    {
+      "category": "Portrait Photography",
+      "description": "Our portrait photography service is all about showcasing your unique personality. Whether you need a professional headshot, a family portrait, or a personal photoshoot, we create images that reflect your true self. We work closely with you to bring out your best angles and expressions, ensuring every portrait tells your story.",
+      "image": "https://example.com/images/portrait-photography.jpg",
+      "pricing": [
+        {
+          "type": "Individual Session",
+          "price": 250,
+          "features": [
+            "Ideal for capturing your unique personality and style.",
+            "Includes a 2-hour photoshoot and 20 professionally edited images."
+          ],
+          "additional_images": "Additional images can be purchased at $10 each",
+          "custom_pricing": "Contact us for personalized pricing"
+        },
+        {
+          "type": "Family Session",
+          "price": 400,
+          "features": [
+            "Perfect for creating lasting memories with your loved ones.",
+            "Includes a 3-hour photoshoot and 30 professionally edited images."
+          ],
+          "additional_images": "Additional images can be purchased at $10 each",
+          "custom_pricing": "Contact us for personalized pricing"
+        },
+        {
+          "type": "Couple Session",
+          "price": 300,
+          "features": [
+            "Celebrate your love story with an intimate photoshoot.",
+            "Includes a 2.5-hour photoshoot and 25 professionally edited images."
+          ],
+          "additional_images": "Additional images can be purchased at $10 each",
+          "custom_pricing": "Contact us for personalized pricing"
+        }
+      ]
+    },
+    {
+      "category": "Commercial Photography",
+      "description": "In the world of business, a compelling image can make all the difference. Our commercial photography service is designed to enhance your brand's visual identity. We create striking images for your products, services, and marketing campaigns that leave a lasting impact on your audience.",
+      "image": "https://example.com/images/commercial-photography.jpg",
+      "pricing": [
+        {
+          "type": "Product Photography",
+          "price": 500,
+          "features": [
+            "Showcase your products in the best light.",
+            "Includes a half-day photoshoot, 20 professionally edited product images, and high-resolution files."
+          ],
+          "additional_images": "Additional images can be purchased at $20 each",
+          "custom_pricing": "Contact us for personalized pricing"
+        },
+        {
+          "type": "Real Estate Photography",
+          "price": 700,
+          "features": [
+            "Highlight the beauty of your properties.",
+            "Includes interior and exterior shots, a 2-hour photoshoot, and 25 professionally edited images."
+          ],
+          "additional_images": "Additional images can be purchased at $20 each",
+          "custom_pricing": "Contact us for personalized pricing"
+        },
+        {
+          "type": "Brand Photography",
+          "price": "Custom Pricing",
+          "features": [
+            "Craft a visual narrative that aligns with your brand identity."
+          ],
+          "custom_pricing": "Contact us to discuss your brand photography needs and receive a personalized quote"
+        }
+      ]
+    }
+  ]
+}

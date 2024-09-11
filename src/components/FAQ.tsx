@@ -1,7 +1,7 @@
 import { AccordionContent } from "@radix-ui/react-accordion";
 import TitledLink from "./TitledLink";
 import { Accordion, AccordionItem, AccordionTrigger } from "./ui/Accordion";
-import {faqs} from "@/app/lib/faq";
+import {faqs} from "@/data/faq";
 import MaxWidthWrapper from "./MaxWidthWrapper";
 
 const FAQ = () => {

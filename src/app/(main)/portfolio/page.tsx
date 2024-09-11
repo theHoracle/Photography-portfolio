@@ -38,7 +38,7 @@ export default async function Portfolio() {
               src="/gallery/image2.jpeg"
               alt="image2"
               fill
-              className="object-cover object-center"
+              className="object-cover object-center" 
               />
             </div>
             <div className="relative w-full aspect-[1/1.5]">
