@@ -40,9 +40,9 @@ const Plans = () => {
                       <div className="flex-[3] flex flex-col gap-2">
                         {plan.features.map((feature, index) => (
                           <p key={index}
-                          className="flex items-center gap-2 p-4 border border-accent rounded-lg"
+                          className="flex items-center gap-2 p-4 border uppercase border-accent rounded-lg"
                           >
-                            <StarSvg />
+                            <StarSvg className="size-10" />
                             {feature}</p>
                      ))}
                       </div>
